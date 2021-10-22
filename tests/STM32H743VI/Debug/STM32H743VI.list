@@ -31,13 +31,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  13 .debug_macro  0003a601  00000000  00000000  00044d00  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_line   00011b2c  00000000  00000000  0007f301  2**0
+ 14 .debug_line   00011ba4  00000000  00000000  0007f301  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_str    0015883d  00000000  00000000  00090e2d  2**0
+ 15 .debug_str    00158845  00000000  00000000  00090ea5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .comment      00000053  00000000  00000000  001e966a  2**0
+ 16 .comment      00000053  00000000  00000000  001e96ea  2**0
                   CONTENTS, READONLY
- 17 .debug_frame  00003434  00000000  00000000  001e96c0  2**2
+ 17 .debug_frame  00003434  00000000  00000000  001e9740  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -113,8 +113,6 @@ void cppMain()
  800030e:	681b      	ldr	r3, [r3, #0]
  8000310:	4610      	mov	r0, r2
  8000312:	4798      	blx	r3
-	//tft->setOrientation(Orientation::VUD);
-	//tft->setOrientation(Orientation::H);
 	tft->select();
  8000314:	687a      	ldr	r2, [r7, #4]
  8000316:	687b      	ldr	r3, [r7, #4]
@@ -12993,7 +12991,7 @@ class Display
  80054bc:	08006464 	.word	0x08006464
 
 080054c0 <_ZN6ST7735C1Ev>:
-//#define ST7735_COLOR565(r, g, b) (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | ((b & 0xF8) >> 3))
+
 #define ST7735_COLOR565(r, g, b) (((r & 0x1F) << 11) | ((g & 0x3F) << 5) | ((b & 0x1F)))
 
 #define CLIPVALUE(v, min, max) ((v < min) ? min : ((v > max) ? max : v))

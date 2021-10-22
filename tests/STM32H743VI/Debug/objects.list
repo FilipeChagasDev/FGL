@@ -32,5 +32,5 @@
 "./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.o"
 "./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.o"
 "./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.o"
-"./displays/ST7735.o"
-"./displays/display.o"
+"./fgl/displays/ST7735.o"
+"./fgl/displays/display.o"

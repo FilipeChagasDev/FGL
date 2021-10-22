@@ -8,8 +8,7 @@
 #ifndef INC_STM32H7_ST7735_HPP_
 #define INC_STM32H7_ST7735_HPP_
 
-//#include "../../displays/display.hpp"
-#include <ST7735.hpp>
+#include <displays/ST7735.hpp>
 #include <stm32h7xx_hal.h>
 
 class STM32H7_ST7735 : public ST7735

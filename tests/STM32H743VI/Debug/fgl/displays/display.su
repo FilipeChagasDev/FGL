@@ -1,0 +1,2 @@
+display.cpp:10:1:Display::~Display()	16	static
+display.cpp:10:1:virtual Display::~Display()	16	static

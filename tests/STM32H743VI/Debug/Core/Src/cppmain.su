@@ -1,2 +1,2 @@
 cppmain.cpp:12:6:void cppMain()	48	static
-cppmain.cpp:39:17:void jumpToCPP()	8	static
+cppmain.cpp:37:17:void jumpToCPP()	8	static
