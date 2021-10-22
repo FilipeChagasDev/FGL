@@ -7,12 +7,7 @@
 
 #include "display.hpp"
 
-namespace TGL
-{
-
 Display::~Display()
 {
 	// TODO Auto-generated destructor stub
 }
-
-} /* namespace TGL */

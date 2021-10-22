@@ -9,10 +9,6 @@
 #define ST7735_H_
 
 #include "display.hpp"
-#include <string>
-
-namespace TGL
-{
 
 class ST7735 : public Display
 {
@@ -27,8 +23,8 @@ protected:
 	void initCommand1();
 	void initCommand2();
 	void initCommand3();
-	void sendCommand(uint8_t);
-	void sendData(uint8_t);
+	void sendCommand(uint8_t cmd);
+	void sendData(uint8_t data);
 	void setAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
 	int convertOrientationX(int vx, int vy);
 	int convertOrientationY(int vx, int vy);
@@ -39,7 +35,7 @@ public:
 	ST7735();
 
 	//Name
-	std::string getName() override;
+	const char *getName() override;
 
 	//Properties
 	uint32_t getWidth() override;
@@ -48,8 +44,8 @@ public:
 	float getDPMMY() override;
 
 	//Brightness
-	virtual void setBrightness(float v) = 0;
-	virtual float getBrightness() = 0;
+	void setBrightness(float v) override;
+	float getBrightness() override;
 
 	//Orientation
 	void setOrientation(Orientation orientation) override;
@@ -76,7 +72,5 @@ public:
 
 	virtual ~ST7735();
 };
-
-} /* namespace TGL */
 
 #endif /* ST7735_H_ */

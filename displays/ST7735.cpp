@@ -8,6 +8,11 @@
 
 #include "ST7735.hpp"
 
+#define ST7735_XSTART 0
+#define ST7735_YSTART 0
+#define ST7735_IS_160X128 1
+#define ST7735_ROTATION (ST7735_MADCTL_MX | ST7735_MADCTL_MY)
+
 #define ST7735_MADCTL_MY  0x80
 #define ST7735_MADCTL_MX  0x40
 #define ST7735_MADCTL_MV  0x20
@@ -62,12 +67,9 @@
 #define ST7735_GMCTRP1 0xE0
 #define ST7735_GMCTRN1 0xE1
 
-#define ST7735_COLOR565(r, g, b) (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | ((b & 0xF8) >> 3))
+#define ST7735_COLOR565(r, g, b) (((r & 0x1F) << 11) | ((g & 0x3F) << 5) | ((b & 0x1F)))
 
 #define CLIPVALUE(v, min, max) ((v < min) ? min : ((v > max) ? max : v))
-
-namespace TGL
-{
 
 ST7735::ST7735()
 {
@@ -84,6 +86,17 @@ ST7735::~ST7735()
 	// TODO Auto-generated destructor stub
 }
 
+void ST7735::sendCommand(uint8_t cmd)
+{
+	this->dcPinReset();
+	this->sendByte(cmd);
+}
+
+void ST7735::sendData(uint8_t data)
+{
+	this->dcPinSet();
+	this->sendByte(data);
+}
 
 void ST7735::init()
 {
@@ -93,68 +106,68 @@ void ST7735::init()
 
 void ST7735::initCommand1()
 {
-	this->sendCommand(ST7735_SWRESET); //  1: Software reset
+	this->sendCommand(ST7735_SWRESET); //1: Software reset
 	this->delay(150);
-	this->sendCommand(ST7735_SLPOUT); //  2: Out of sleep mode
+	this->sendCommand(ST7735_SLPOUT); //2: Out of sleep mode
 	this->delay(500);
-	this->sendCommand(ST7735_FRMCTR1); //  3: Frame rate ctrl - normal mode
-	this->sendData(0x01); //     Rate = fosc/(1x2+40) * (LINE+2C+2D)
+	this->sendCommand(ST7735_FRMCTR1); //3: Frame rate ctrl - normal mode
+	this->sendData(0x01); //Rate = fosc/(1x2+40) * (LINE+2C+2D)
 	this->sendData(0x2C);
 	this->sendData(0x2D);
-	this->sendCommand(ST7735_FRMCTR2); //  4: Frame rate control - idle mode
-	this->sendData(0x01); //  Rate = fosc/(1x2+40) * (LINE+2C+2D)
+	this->sendCommand(ST7735_FRMCTR2); //4: Frame rate control - idle mode
+	this->sendData(0x01); //Rate = fosc/(1x2+40) * (LINE+2C+2D)
 	this->sendData(0x2C);
 	this->sendData(0x2D);
-	this->sendCommand(ST7735_FRMCTR3); //  5: Frame rate ctrl - partial mode
-	this->sendData(0x01); //     Dot inversion mode
+	this->sendCommand(ST7735_FRMCTR3); //5: Frame rate ctrl - partial mode
+	this->sendData(0x01); //Dot inversion mode
 	this->sendData(0x2C);
 	this->sendData(0x2D);
-	this->sendData(0x01); //     Line inversion mode
+	this->sendData(0x01); //Line inversion mode
 	this->sendData(0x2C);
 	this->sendData(0x2D);
-	this->sendCommand(ST7735_INVCTR); //  6: Display inversion ctrl
-	this->sendData(0x07); //     No inversion
-	this->sendCommand(ST7735_PWCTR1);			//  7: Power control
+	this->sendCommand(ST7735_INVCTR); //6: Display inversion ctrl
+	this->sendData(0x07); //No inversion
+	this->sendCommand(ST7735_PWCTR1); //7: Power control
 	this->sendData(0xA2);
-	this->sendData(0x02);							//     -4.6V
-	this->sendData(0x84);							//     AUTO mode
-	this->sendCommand(ST7735_PWCTR2);			//  8: Power control
-	this->sendData(0xC5);							//     VGH25 = 2.4C VGSEL = -10 VGH = 3 * AVDD
-	this->sendCommand(ST7735_PWCTR3);			//  9: Power control
-	this->sendData(0x0A);							//     Opamp current small
-	this->sendData(0x00);							//     Boost frequency
-	this->sendCommand(ST7735_PWCTR4);			// 10: Power control
-	this->sendData(0x8A);							//     BCLK/2, Opamp current small & Medium low
+	this->sendData(0x02); // -4.6V
+	this->sendData(0x84); // AUTO mode
+	this->sendCommand(ST7735_PWCTR2); // 8: Power control
+	this->sendData(0xC5); // VGH25 = 2.4C VGSEL = -10 VGH = 3 * AVDD
+	this->sendCommand(ST7735_PWCTR3); // 9: Power control
+	this->sendData(0x0A); // Opamp current small
+	this->sendData(0x00); // Boost frequency
+	this->sendCommand(ST7735_PWCTR4); // 10: Power control
+	this->sendData(0x8A); // BCLK/2, Opamp current small & Medium low
 	this->sendData(0x2A);
-	this->sendCommand(ST7735_PWCTR5);			// 11: Power control
+	this->sendCommand(ST7735_PWCTR5); // 11: Power control
 	this->sendData(0x8A);
 	this->sendData(0xEE);
-	this->sendCommand(ST7735_VMCTR1);			// 12: Power control
+	this->sendCommand(ST7735_VMCTR1); // 12: Power control
 	this->sendData(0x0E);
-	this->sendCommand(ST7735_INVOFF);			// 13: Don't invert display
-	this->sendCommand(ST7735_MADCTL);			// 14: Memory access control (directions)
-	this->sendData(ST7735_ROTATION);	//     row addr/col addr, bottom to top refresh
-	this->sendCommand(ST7735_COLMOD);			// 15: set color mode
-	this->sendData(0x05);							//     16-bit color
+	this->sendCommand(ST7735_INVOFF); // 13: Don't invert display
+	this->sendCommand(ST7735_MADCTL); // 14: Memory access control (directions)
+	this->sendData(ST7735_ROTATION); // row addr/col addr, bottom to top refresh
+	this->sendCommand(ST7735_COLMOD); // 15: set color mode
+	this->sendData(0x05); // 16-bit color
 }
 
 void ST7735::initCommand2()
 {
-	this->sendCommand(ST7735_CASET);			//  1: Column addr set
-	this->sendData(0x00);							//     XSTART = 0
+	this->sendCommand(ST7735_CASET); // 1: Column addr set
+	this->sendData(0x00); // XSTART = 0
 	this->sendData(0x00);
-	this->sendData(0x00);							//     XEND = 127
+	this->sendData(0x00); // XEND = 127
 	this->sendData(0x7F);
-	this->sendCommand(ST7735_RASET);			//  2: Row addr set
-	this->sendData(0x00);							//     XSTART = 0
+	this->sendCommand(ST7735_RASET); // 2: Row addr set
+	this->sendData(0x00); // XSTART = 0
 	this->sendData(0x00);
-	this->sendData(0x00);							//     XEND = 127
+	this->sendData(0x00); // XEND = 127
 	this->sendData(0x7F);
 }
 
 void ST7735::initCommand3()
 {
-	this->sendCommand(ST7735_GMCTRP1);  //  1: Magical unicorn dust
+	this->sendCommand(ST7735_GMCTRP1); // 1: Magical unicorn dust
 	this->sendData(0x02);
 	this->sendData(0x1C);
 	this->sendData(0x07);
@@ -171,7 +184,7 @@ void ST7735::initCommand3()
 	this->sendData(0x01);
 	this->sendData(0x03);
 	this->sendData(0x10);
-	this->sendCommand(ST7735_GMCTRN1);  //  2: Sparkles and rainbows
+	this->sendCommand(ST7735_GMCTRN1); // 2: Sparkles and rainbows
 	this->sendData(0x03);
 	this->sendData(0x1D);
 	this->sendData(0x07);
@@ -194,14 +207,14 @@ void ST7735::initCommand3()
 	this->delay(100);
 }
 
-std::string ST7735::getName()
+const char *ST7735::getName()
 {
 	return "ST7735";
 }
 
 uint32_t ST7735::getWidth()
 {
-	if(this->orientation == Orientation::V or this->orientation == Orientation::VUD)
+	if(this->orientation == Orientation::V)
 		return this->v_width_dots;
 	else
 		return this->v_height_dots;
@@ -209,7 +222,7 @@ uint32_t ST7735::getWidth()
 
 uint32_t ST7735::getHeight()
 {
-	if(this->orientation == Orientation::V or this->orientation == Orientation::VUD)
+	if(this->orientation == Orientation::V)
 		return this->v_height_dots;
 	else
 		return this->v_width_dots;
@@ -217,7 +230,7 @@ uint32_t ST7735::getHeight()
 
 float ST7735::getDPMMX()
 {
-	if(this->orientation == Orientation::V or this->orientation == Orientation::VUD)
+	if(this->orientation == Orientation::V)
 		return (float)this->v_width_dots/this->v_width_mm;
 	else
 		return (float)this->v_height_dots/this->v_height_mm;
@@ -225,10 +238,21 @@ float ST7735::getDPMMX()
 
 float ST7735::getDPMMY()
 {
-	if(this->orientation == Orientation::V or this->orientation == Orientation::VUD)
+	if(this->orientation == Orientation::V)
 		return (float)this->v_height_dots/this->v_height_mm;
 	else
 		return (float)this->v_width_dots/this->v_width_mm;
+}
+
+void ST7735::setBrightness(float v)
+{
+	//TODO
+}
+
+float ST7735::getBrightness()
+{
+	//TODO
+	return 1;
 }
 
 void ST7735::setOrientation(Orientation orientation)
@@ -272,7 +296,6 @@ void ST7735::unselect()
 	this->csPinSet();
 }
 
-
 void ST7735::setAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
 {
     this->sendCommand(ST7735_CASET); // Column addr set
@@ -290,8 +313,6 @@ void ST7735::setAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
 	this->sendCommand(ST7735_RAMWR);
 }
 
-
-
 uint16_t ST7735::convertColor(float r, float g, float b)
 {
 	r = CLIPVALUE(r, 0, 1);
@@ -304,55 +325,12 @@ uint16_t ST7735::convertColor(float r, float g, float b)
 	return color;
 }
 
-int ST7735::convertOrientationX(int vx, int vy)
-{
-    int x = vx;
-
-    switch(this->orientation)
-    {
-    case Orientation::VUD:
-    	x = this->v_width_dots - vx;
-    	break;
-    case Orientation::H:
-    	x = vy;
-    	break;
-    case Orientation::HUV:
-    	x = this->v_height_dots - vy;
-    	break;
-    }
-
-    return x;
-}
-
-
-int ST7735::convertOrientationY(int vx, int vy)
-{
-    int y = vy;
-
-    switch(this->orientation)
-    {
-    case Orientation::VUD:
-    	y = this->v_height_dots - vy;
-    	break;
-    case Orientation::H:
-    	y = vx;
-    	break;
-    case Orientation::HUV:
-    	y = this->v_width_dots - vx;
-    	break;
-    }
-
-    return y;
-}
 
 bool ST7735::drawPixel(int x, int y, float r, float g, float b)
 {
     if(this->selected)
     {
-    	x = this->convertOrientationX(x);
-    	y = this->convertOrientationY(y);
-
-    	if(x >= this->getWidth or y >= this->getHeight or x < 0 or y < 0)
+    	if(x >= this->getWidth() or y >= this->getHeight() or x < 0 or y < 0)
     		return false;
 
     	uint16_t color = ST7735::convertColor(r, g, b);
@@ -372,11 +350,6 @@ bool ST7735::drawArea(int x1, int y1, int x2, int y2, float r, float g, float b)
 {
     if(this->selected)
     {
-    	x1 = this->convertOrientationX(x1);
-    	x2 = this->convertOrientationX(x2);
-    	y1 = this->convertOrientationY(y1);
-    	y2 = this->convertOrientationY(y2);
-
     	uint32_t w = this->getWidth();
     	uint32_t h = this->getHeight();
 
@@ -409,4 +382,3 @@ bool ST7735::drawArea(int x1, int y1, int x2, int y2, float r, float g, float b)
     }
 }
 
-} /* namespace TGL */

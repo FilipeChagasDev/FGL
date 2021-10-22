@@ -8,25 +8,18 @@
 #ifndef DISPLAY_HPP_
 #define DISPLAY_HPP_
 
-#include <cinttypes>
-#include <string>
-
-namespace TGL
-{
-
+#include <stdint.h>
 /**
  * V = Vertical
  * H = Horizontal
- * VUD = Vertical Upside-Down
- * HUD = Horizontal Upside-Down
  */
-enum class Orientation {V, VUD, H, HUD};
+enum class Orientation {V, H};
 
 class Display
 {
 public:
 	//Name
-	virtual std::string getName() = 0;
+	virtual const char *getName() = 0;
 
 	//Properties
 	virtual uint32_t getWidth() = 0;
@@ -53,7 +46,5 @@ public:
 	//Destructor
 	virtual ~Display();
 };
-
-} /* namespace TGL */
 
 #endif /* DISPLAY_HPP_ */

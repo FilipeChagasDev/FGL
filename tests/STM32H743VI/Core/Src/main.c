@@ -89,7 +89,7 @@ int main(void)
   MX_SPI1_Init();
   MX_DAC1_Init();
   /* USER CODE BEGIN 2 */
-
+  jumpToCPP();
   /* USER CODE END 2 */
 
   /* Infinite loop */
