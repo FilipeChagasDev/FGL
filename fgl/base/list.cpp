@@ -370,3 +370,4 @@ bool List<T>::removeItemAndGoBack(Iterator<T> &iterator)
 
 	return b;
 }
+

@@ -65,6 +65,6 @@ public:
 	virtual ~List();
 };
 
-#include "list.cpp"
+//#include "list.cpp"
 
 #endif /* BASE_LIST_HPP_ */

@@ -1,0 +1,7 @@
+color.cpp:12:1:Color::Color()	16	static
+color.cpp:20:1:Color::Color(float, float, float)	24	static
+color.cpp:28:1:Color::Color(float, float, float, float)	32	static
+color.cpp:36:6:void Color::setRGB(float, float, float)	24	static
+color.cpp:44:6:void Color::setARGB(float, float, float, float)	32	static
+color.cpp:52:1:Color::~Color()	16	static
+color.cpp:52:1:virtual Color::~Color()	16	static

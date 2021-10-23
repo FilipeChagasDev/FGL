@@ -1,2 +1,4 @@
-cppmain.cpp:12:6:void cppMain()	48	static
-cppmain.cpp:37:17:void jumpToCPP()	8	static
+cmath:184:3:constexpr float std::cos(float)	16	static
+cmath:425:3:constexpr float std::sin(float)	16	static
+cppmain.cpp:17:6:void cppMain()	192	static
+cppmain.cpp:65:17:void jumpToCPP()	8	static

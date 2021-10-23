@@ -1,0 +1,14 @@
+cmath:165:3:constexpr float std::ceil(float)	16	static
+cmath:184:3:constexpr float std::cos(float)	16	static
+cmath:260:3:constexpr float std::floor(float)	16	static
+cmath:425:3:constexpr float std::sin(float)	16	static
+canvas.cpp:14:1:Canvas::Canvas(Display&, bool, bool)	40	static
+canvas.cpp:41:1:Canvas::~Canvas()	16	static
+canvas.cpp:41:1:virtual Canvas::~Canvas()	16	static
+canvas.cpp:48:6:void Canvas::drawPixel(float, float, Color)	104	static
+color.hpp:11:7:constexpr Color::Color(const Color&)	16	static
+canvas.cpp:129:6:void Canvas::drawLine(float, float, float, float, Color)	120	static
+canvas.cpp:157:6:void Canvas::drawRectangle(float, float, float, float, Color)	128	static
+canvas.cpp:171:6:void Canvas::drawEllipse(float, float, float, uint32_t, Color)	80	static
+canvas.cpp:189:6:void Canvas::drawChar(float, float, char, Font&, Color)	32	static
+canvas.cpp:194:6:void Canvas::drawText(float, float, const char*, Font&, Color)	32	static
