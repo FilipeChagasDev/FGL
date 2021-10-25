@@ -5,6 +5,8 @@
  *      Author: Filipe Chagas
  */
 
+#if 0
+
 #include "list.hpp"
 #include <assert.h>
 
@@ -368,6 +370,24 @@ bool List<T>::removeItemAndGoBack(Iterator<T> &iterator)
 
 	this->counter -= 1;
 
-	return b;
+    return b;
 }
 
+template<typename T>
+T *List<T>::getArray()
+{
+    assert(this->counter > 0);
+
+    T *array = new T[this->counter];
+
+    uint32_t i = 0;
+    for(ListNode<T> *it = this->begin; it != nullptr; it = it->next)
+    {
+        array[i] = it->data;
+        i += 1;
+    }
+
+    return array;
+}
+
+#endif
