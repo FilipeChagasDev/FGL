@@ -2,7 +2,17 @@
 #include "ui_mainwindow.h"
 #include <QPen>
 #include <QColor>
-
+#include <image.hpp>
+#include "images/space1.hpp"
+#include "images/space2.hpp"
+#include "images/space3.hpp"
+#include "images/space4.hpp"
+#include "images/space5.hpp"
+#include "images/space6.hpp"
+#include "images/space7.hpp"
+#include "images/space8.hpp"
+#include "images/space9.hpp"
+#include "images/space10.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -60,9 +70,45 @@ MainWindow::MainWindow(QWidget *parent)
 
     //canvas.fillRoundedRectangle(100,100,100,100,20,Color(0,0,0));
 
-    float px[4] = {10, 200, 50, 100};
-    float py[4] = {10, 10, 200, 250};
-    canvas.drawPolygon(px, py, 4, Color(1,0,0));
+    //float px[4] = {10, 200, 50, 100};
+    //float py[4] = {10, 10, 200, 250};
+    //canvas.drawPolygon(px, py, 4, Color(1,0,0));
+
+    //ImageARGB8888 pic(100, 100);
+    //ImageARGB1555 pic(100, 100);
+    //ImageRGB565 pic(100, 100);
+
+    /*
+    ImageK8 pic(100, 100);
+    int k = 0;
+    for(int a = 0; a < 4; a++)
+    {
+        for(int r = 0; r < 4; r++)
+        {
+            for(int g = 0; g < 4; g++)
+            {
+                for(int b = 0; b < 4; b++)
+                {
+                    pic.color_map[k++] = new Color((float)a/3, (float)r/3, (float)g/3, (float)b/3);
+                }
+            }
+        }
+    }
+
+    for(int i = 0; i < 100; i++)
+    {
+        for(int j = 0; j < 100; j++)
+        {
+            //pic.setPixel(i, j, Color((float)(i*j)/10000.0, (float)i/100.0, 0, (float)j/100.0));
+            pic.setPixel(i, j, Color((float)i/100.0, 0, (float)j/100.0));
+        }
+    }
+
+    canvas.drawImage(100, 100, pic);
+    */
+    Image *img = get_space3_img();
+    //canvas.fillRoundedRectangle(100,100,100,100,20,Color(0,0,0));
+    canvas.drawImage(100, 100, *img);
 }
 
 MainWindow::~MainWindow()

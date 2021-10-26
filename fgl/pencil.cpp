@@ -12,7 +12,7 @@
 #include <base/array_search.hpp>
 #include <base/list.hpp>
 
-#define ABS(v) ((v >= 0) ? v : -v)
+#define ABS(v) (((v) >= 0) ? (v) : -(v))
 #define PI 3.14159265359
 
 Pencil::Pencil(Display &display)
@@ -225,6 +225,20 @@ void Pencil::drawChar(float x, float y, char c, Font &font, Color color)
 void Pencil::drawText(float x, float y, const char* text, Font &font, Color color)
 {
     //TODO
+}
+
+void Pencil::drawImage(float x, float y, Image &image)
+{
+    assert(x >= 0);
+    assert(y >= 0);
+
+    for(uint32_t i = 0; i < image.getWidth(); i++)
+    {
+        for(uint32_t j = 0; j < image.getHeight(); j++)
+        {
+            this->drawPixel(floorf(x)+i, floorf(y)+j, image.getPixel(i, j));
+        }
+    }
 }
 
 void Pencil::fillRectangle(float x, float y, float w, float h, Color color)

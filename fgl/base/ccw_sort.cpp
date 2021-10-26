@@ -7,7 +7,7 @@ Author: Filipe Chagas
 #include "ccw_sort.hpp"
 #include <math.h>
 
-#define ABS(v) ((v >= 0) ? v : -v)
+#define ABS(v) (((v) >= 0) ? (v) : -(v))
 #define PI 3.14159265359
 
 float get_vec2d_ccw_rotation(float x, float y)

@@ -17,7 +17,18 @@ SOURCES += \
     fgl/displays/display.cpp \
     fgl/fonts/font.cpp \
     fgl/framebuffer.cpp \
+    fgl/image.cpp \
     fgl/pencil.cpp \
+    images/space1.cpp \
+    images/space10.cpp \
+    images/space2.cpp \
+    images/space3.cpp \
+    images/space4.cpp \
+    images/space5.cpp \
+    images/space6.cpp \
+    images/space7.cpp \
+    images/space8.cpp \
+    images/space9.cpp \
     qt_fgl_display.cpp \
     main.cpp \
     mainwindow.cpp
@@ -31,7 +42,18 @@ HEADERS += \
     fgl/displays/display.hpp \
     fgl/fonts/font.hpp \
     fgl/framebuffer.hpp \
+    fgl/image.hpp \
     fgl/pencil.hpp \
+    images/space1.hpp \
+    images/space10.hpp \
+    images/space2.hpp \
+    images/space3.hpp \
+    images/space4.hpp \
+    images/space5.hpp \
+    images/space6.hpp \
+    images/space7.hpp \
+    images/space8.hpp \
+    images/space9.hpp \
     mainwindow.h \
     qt_fgl_display.hpp
 

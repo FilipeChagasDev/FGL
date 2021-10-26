@@ -7,7 +7,7 @@
 
 #include <color.hpp>
 
-#define CLIPVALUE(v, min, max) ((v < min) ? min : ((v > max) ? max : v))
+#define CLIPVALUE(v, min, max) (((v) < (min)) ? (min) : (((v) > (max)) ? (max) : (v)))
 
 Color::Color()
 {

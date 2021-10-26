@@ -60,7 +60,18 @@ SOURCES       = ../qt-display-simulation/fgl/base/array_search.cpp \
 		../qt-display-simulation/fgl/displays/display.cpp \
 		../qt-display-simulation/fgl/fonts/font.cpp \
 		../qt-display-simulation/fgl/framebuffer.cpp \
+		../qt-display-simulation/fgl/image.cpp \
 		../qt-display-simulation/fgl/pencil.cpp \
+		../qt-display-simulation/images/space1.cpp \
+		../qt-display-simulation/images/space10.cpp \
+		../qt-display-simulation/images/space2.cpp \
+		../qt-display-simulation/images/space3.cpp \
+		../qt-display-simulation/images/space4.cpp \
+		../qt-display-simulation/images/space5.cpp \
+		../qt-display-simulation/images/space6.cpp \
+		../qt-display-simulation/images/space7.cpp \
+		../qt-display-simulation/images/space8.cpp \
+		../qt-display-simulation/images/space9.cpp \
 		../qt-display-simulation/qt_fgl_display.cpp \
 		../qt-display-simulation/main.cpp \
 		../qt-display-simulation/mainwindow.cpp moc_mainwindow.cpp
@@ -72,7 +83,18 @@ OBJECTS       = array_search.o \
 		display.o \
 		font.o \
 		framebuffer.o \
+		image.o \
 		pencil.o \
+		space1.o \
+		space10.o \
+		space2.o \
+		space3.o \
+		space4.o \
+		space5.o \
+		space6.o \
+		space7.o \
+		space8.o \
+		space9.o \
 		qt_fgl_display.o \
 		main.o \
 		mainwindow.o \
@@ -275,7 +297,18 @@ DIST          = ../../../../Qt/5.12.11/gcc_64/mkspecs/features/spec_pre.prf \
 		../qt-display-simulation/fgl/displays/display.hpp \
 		../qt-display-simulation/fgl/fonts/font.hpp \
 		../qt-display-simulation/fgl/framebuffer.hpp \
+		../qt-display-simulation/fgl/image.hpp \
 		../qt-display-simulation/fgl/pencil.hpp \
+		../qt-display-simulation/images/space1.hpp \
+		../qt-display-simulation/images/space10.hpp \
+		../qt-display-simulation/images/space2.hpp \
+		../qt-display-simulation/images/space3.hpp \
+		../qt-display-simulation/images/space4.hpp \
+		../qt-display-simulation/images/space5.hpp \
+		../qt-display-simulation/images/space6.hpp \
+		../qt-display-simulation/images/space7.hpp \
+		../qt-display-simulation/images/space8.hpp \
+		../qt-display-simulation/images/space9.hpp \
 		../qt-display-simulation/mainwindow.h \
 		../qt-display-simulation/qt_fgl_display.hpp ../qt-display-simulation/fgl/base/array_search.cpp \
 		../qt-display-simulation/fgl/base/ccw_sort.cpp \
@@ -285,7 +318,18 @@ DIST          = ../../../../Qt/5.12.11/gcc_64/mkspecs/features/spec_pre.prf \
 		../qt-display-simulation/fgl/displays/display.cpp \
 		../qt-display-simulation/fgl/fonts/font.cpp \
 		../qt-display-simulation/fgl/framebuffer.cpp \
+		../qt-display-simulation/fgl/image.cpp \
 		../qt-display-simulation/fgl/pencil.cpp \
+		../qt-display-simulation/images/space1.cpp \
+		../qt-display-simulation/images/space10.cpp \
+		../qt-display-simulation/images/space2.cpp \
+		../qt-display-simulation/images/space3.cpp \
+		../qt-display-simulation/images/space4.cpp \
+		../qt-display-simulation/images/space5.cpp \
+		../qt-display-simulation/images/space6.cpp \
+		../qt-display-simulation/images/space7.cpp \
+		../qt-display-simulation/images/space8.cpp \
+		../qt-display-simulation/images/space9.cpp \
 		../qt-display-simulation/qt_fgl_display.cpp \
 		../qt-display-simulation/main.cpp \
 		../qt-display-simulation/mainwindow.cpp
@@ -698,8 +742,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.12.11/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../qt-display-simulation/fgl/base/array_search.hpp ../qt-display-simulation/fgl/base/ccw_sort.hpp ../qt-display-simulation/fgl/base/list.hpp ../qt-display-simulation/fgl/buffered_pencil.hpp ../qt-display-simulation/fgl/color.hpp ../qt-display-simulation/fgl/displays/display.hpp ../qt-display-simulation/fgl/fonts/font.hpp ../qt-display-simulation/fgl/framebuffer.hpp ../qt-display-simulation/fgl/pencil.hpp ../qt-display-simulation/mainwindow.h ../qt-display-simulation/qt_fgl_display.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../qt-display-simulation/fgl/base/array_search.cpp ../qt-display-simulation/fgl/base/ccw_sort.cpp ../qt-display-simulation/fgl/base/list.cpp ../qt-display-simulation/fgl/buffered_pencil.cpp ../qt-display-simulation/fgl/color.cpp ../qt-display-simulation/fgl/displays/display.cpp ../qt-display-simulation/fgl/fonts/font.cpp ../qt-display-simulation/fgl/framebuffer.cpp ../qt-display-simulation/fgl/pencil.cpp ../qt-display-simulation/qt_fgl_display.cpp ../qt-display-simulation/main.cpp ../qt-display-simulation/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../qt-display-simulation/fgl/base/array_search.hpp ../qt-display-simulation/fgl/base/ccw_sort.hpp ../qt-display-simulation/fgl/base/list.hpp ../qt-display-simulation/fgl/buffered_pencil.hpp ../qt-display-simulation/fgl/color.hpp ../qt-display-simulation/fgl/displays/display.hpp ../qt-display-simulation/fgl/fonts/font.hpp ../qt-display-simulation/fgl/framebuffer.hpp ../qt-display-simulation/fgl/image.hpp ../qt-display-simulation/fgl/pencil.hpp ../qt-display-simulation/images/space1.hpp ../qt-display-simulation/images/space10.hpp ../qt-display-simulation/images/space2.hpp ../qt-display-simulation/images/space3.hpp ../qt-display-simulation/images/space4.hpp ../qt-display-simulation/images/space5.hpp ../qt-display-simulation/images/space6.hpp ../qt-display-simulation/images/space7.hpp ../qt-display-simulation/images/space8.hpp ../qt-display-simulation/images/space9.hpp ../qt-display-simulation/mainwindow.h ../qt-display-simulation/qt_fgl_display.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../qt-display-simulation/fgl/base/array_search.cpp ../qt-display-simulation/fgl/base/ccw_sort.cpp ../qt-display-simulation/fgl/base/list.cpp ../qt-display-simulation/fgl/buffered_pencil.cpp ../qt-display-simulation/fgl/color.cpp ../qt-display-simulation/fgl/displays/display.cpp ../qt-display-simulation/fgl/fonts/font.cpp ../qt-display-simulation/fgl/framebuffer.cpp ../qt-display-simulation/fgl/image.cpp ../qt-display-simulation/fgl/pencil.cpp ../qt-display-simulation/images/space1.cpp ../qt-display-simulation/images/space10.cpp ../qt-display-simulation/images/space2.cpp ../qt-display-simulation/images/space3.cpp ../qt-display-simulation/images/space4.cpp ../qt-display-simulation/images/space5.cpp ../qt-display-simulation/images/space6.cpp ../qt-display-simulation/images/space7.cpp ../qt-display-simulation/images/space8.cpp ../qt-display-simulation/images/space9.cpp ../qt-display-simulation/qt_fgl_display.cpp ../qt-display-simulation/main.cpp ../qt-display-simulation/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../qt-display-simulation/mainwindow.ui $(DISTDIR)/
 
 
@@ -851,6 +895,7 @@ moc_mainwindow.cpp: ../qt-display-simulation/mainwindow.h \
 		../qt-display-simulation/fgl/pencil.hpp \
 		../qt-display-simulation/fgl/fonts/font.hpp \
 		../qt-display-simulation/fgl/color.hpp \
+		../qt-display-simulation/fgl/image.hpp \
 		../qt-display-simulation/fgl/framebuffer.hpp \
 		moc_predefs.h \
 		../../../../Qt/5.12.11/gcc_64/bin/moc
@@ -891,6 +936,7 @@ buffered_pencil.o: ../qt-display-simulation/fgl/buffered_pencil.cpp ../qt-displa
 		../qt-display-simulation/fgl/displays/display.hpp \
 		../qt-display-simulation/fgl/fonts/font.hpp \
 		../qt-display-simulation/fgl/color.hpp \
+		../qt-display-simulation/fgl/image.hpp \
 		../qt-display-simulation/fgl/framebuffer.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o buffered_pencil.o ../qt-display-simulation/fgl/buffered_pencil.cpp
 
@@ -907,14 +953,69 @@ framebuffer.o: ../qt-display-simulation/fgl/framebuffer.cpp ../qt-display-simula
 		../qt-display-simulation/fgl/color.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o framebuffer.o ../qt-display-simulation/fgl/framebuffer.cpp
 
+image.o: ../qt-display-simulation/fgl/image.cpp ../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o image.o ../qt-display-simulation/fgl/image.cpp
+
 pencil.o: ../qt-display-simulation/fgl/pencil.cpp ../qt-display-simulation/fgl/pencil.hpp \
 		../qt-display-simulation/fgl/displays/display.hpp \
 		../qt-display-simulation/fgl/fonts/font.hpp \
 		../qt-display-simulation/fgl/color.hpp \
+		../qt-display-simulation/fgl/image.hpp \
 		../qt-display-simulation/fgl/base/ccw_sort.hpp \
 		../qt-display-simulation/fgl/base/array_search.hpp \
 		../qt-display-simulation/fgl/base/list.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pencil.o ../qt-display-simulation/fgl/pencil.cpp
+
+space1.o: ../qt-display-simulation/images/space1.cpp ../qt-display-simulation/images/space1.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space1.o ../qt-display-simulation/images/space1.cpp
+
+space10.o: ../qt-display-simulation/images/space10.cpp ../qt-display-simulation/images/space10.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space10.o ../qt-display-simulation/images/space10.cpp
+
+space2.o: ../qt-display-simulation/images/space2.cpp ../qt-display-simulation/images/space2.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space2.o ../qt-display-simulation/images/space2.cpp
+
+space3.o: ../qt-display-simulation/images/space3.cpp ../qt-display-simulation/images/space3.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space3.o ../qt-display-simulation/images/space3.cpp
+
+space4.o: ../qt-display-simulation/images/space4.cpp ../qt-display-simulation/images/space4.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space4.o ../qt-display-simulation/images/space4.cpp
+
+space5.o: ../qt-display-simulation/images/space5.cpp ../qt-display-simulation/images/space5.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space5.o ../qt-display-simulation/images/space5.cpp
+
+space6.o: ../qt-display-simulation/images/space6.cpp ../qt-display-simulation/images/space6.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space6.o ../qt-display-simulation/images/space6.cpp
+
+space7.o: ../qt-display-simulation/images/space7.cpp ../qt-display-simulation/images/space7.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space7.o ../qt-display-simulation/images/space7.cpp
+
+space8.o: ../qt-display-simulation/images/space8.cpp ../qt-display-simulation/images/space8.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space8.o ../qt-display-simulation/images/space8.cpp
+
+space9.o: ../qt-display-simulation/images/space9.cpp ../qt-display-simulation/images/space9.hpp \
+		../qt-display-simulation/fgl/image.hpp \
+		../qt-display-simulation/fgl/color.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o space9.o ../qt-display-simulation/images/space9.cpp
 
 qt_fgl_display.o: ../qt-display-simulation/qt_fgl_display.cpp ../qt-display-simulation/qt_fgl_display.hpp \
 		../qt-display-simulation/fgl/displays/display.hpp \
@@ -1120,6 +1221,7 @@ main.o: ../qt-display-simulation/main.cpp ../qt-display-simulation/mainwindow.h 
 		../qt-display-simulation/fgl/pencil.hpp \
 		../qt-display-simulation/fgl/fonts/font.hpp \
 		../qt-display-simulation/fgl/color.hpp \
+		../qt-display-simulation/fgl/image.hpp \
 		../qt-display-simulation/fgl/framebuffer.hpp \
 		../../../../Qt/5.12.11/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt/5.12.11/gcc_64/include/QtWidgets/qapplication.h \
@@ -1246,10 +1348,21 @@ mainwindow.o: ../qt-display-simulation/mainwindow.cpp ../qt-display-simulation/m
 		../qt-display-simulation/fgl/pencil.hpp \
 		../qt-display-simulation/fgl/fonts/font.hpp \
 		../qt-display-simulation/fgl/color.hpp \
+		../qt-display-simulation/fgl/image.hpp \
 		../qt-display-simulation/fgl/framebuffer.hpp \
 		ui_mainwindow.h \
 		../../../../Qt/5.12.11/gcc_64/include/QtGui/QPen \
-		../../../../Qt/5.12.11/gcc_64/include/QtGui/QColor
+		../../../../Qt/5.12.11/gcc_64/include/QtGui/QColor \
+		../qt-display-simulation/images/space1.hpp \
+		../qt-display-simulation/images/space2.hpp \
+		../qt-display-simulation/images/space3.hpp \
+		../qt-display-simulation/images/space4.hpp \
+		../qt-display-simulation/images/space5.hpp \
+		../qt-display-simulation/images/space6.hpp \
+		../qt-display-simulation/images/space7.hpp \
+		../qt-display-simulation/images/space8.hpp \
+		../qt-display-simulation/images/space9.hpp \
+		../qt-display-simulation/images/space10.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../qt-display-simulation/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

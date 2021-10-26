@@ -12,6 +12,7 @@
 #include "displays/display.hpp"
 #include "fonts/font.hpp"
 #include "color.hpp"
+#include "image.hpp"
 
 class Pencil
 {
@@ -33,6 +34,7 @@ public:
     void drawPolygon(float *x_array, float *y_array, uint32_t len, Color color);
     void drawChar(float x, float y, char c, Font &font, Color color); //unavailable
     void drawText(float x, float y, const char* text, Font &font, Color color); //unavailable
+    void drawImage(float x, float y, Image &image);
 
     //Fill methods
     void fillRectangle(float x, float y, float w, float h, Color color);

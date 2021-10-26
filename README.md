@@ -8,7 +8,7 @@ A small graphics library for LCD displays in embedded systems.
 * Abstract drivers for commercial graphic displays (implementable for any hardware with memory enough)
 * Hardware-specific drivers for commercial graphic displays
 * **RGB** color model
-* Drawing of **dots**, **lines**, **rectangles**, **rectangles with rounded edges**, **circles**, **ellipses**, **arcs** and **polygons**
+* Drawing of **dots**, **lines**, **rectangles**, **rectangles with rounded edges**, **circles**, **ellipses**, **arcs**, **polygons** and **images**
 * Filling of **rectangles**, **rectangles with rounded edges**, **circles**, **ellipses**, **polygons** and **sectors**
 * Optional **anti-aliasing** and **alpha composition**
 
