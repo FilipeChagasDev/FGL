@@ -15,10 +15,12 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void draw();
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
+    BufferedPencil *canvas;
     QtFGLDisplay *display;
 };
 #endif // MAINWINDOW_H

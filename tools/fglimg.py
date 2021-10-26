@@ -128,7 +128,7 @@ def get_source_argb1555(img: Image.Image, function_name: str, file_name: str) ->
             g = int(round((pixel[1]/255)*0x1F)) & 0x1F
             b = int(round((pixel[2]/255)*0x1F)) & 0x1F
             px = (a << 15) | (r << 10) | (g << 5) | b
-            text += f'\tmyimg->argb_array[{x*image.width + y}] = {hex(px)};\n'
+            text += f'\tmyimg->argb_array[{x*image.height + y}] = {hex(px)};\n'
 
     text += (
         '\treturn myimg;\n'

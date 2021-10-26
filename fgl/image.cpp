@@ -54,10 +54,10 @@ Color ImageARGB8888::getPixel(uint32_t x, uint32_t y)
     assert(x < this->w);
     assert(y < this->h);
 
-    uint8_t a = this->a_array[x*this->w + y];
-    uint8_t r = this->r_array[x*this->w + y];
-    uint8_t g = this->g_array[x*this->w + y];
-    uint8_t b = this->b_array[x*this->w + y];
+    uint8_t a = this->a_array[x*this->h + y];
+    uint8_t r = this->r_array[x*this->h + y];
+    uint8_t g = this->g_array[x*this->h + y];
+    uint8_t b = this->b_array[x*this->h + y];
     return Color((float)a/255.0, (float)r/255.0, (float)g/255.0, (float)b/255.0);
 }
 
@@ -70,10 +70,10 @@ void ImageARGB8888::setPixel(uint32_t x, uint32_t y, Color color)
     uint8_t r = color.r * 255;
     uint8_t g = color.g * 255;
     uint8_t b = color.b * 255;
-    this->a_array[x*this->w + y] = a;
-    this->r_array[x*this->w + y] = r;
-    this->g_array[x*this->w + y] = g;
-    this->b_array[x*this->w + y] = b;
+    this->a_array[x*this->h + y] = a;
+    this->r_array[x*this->h + y] = r;
+    this->g_array[x*this->h + y] = g;
+    this->b_array[x*this->h + y] = b;
 }
 
 ImageARGB1555::ImageARGB1555(uint32_t width, uint32_t height) : Image(width, height)
@@ -89,7 +89,7 @@ Color ImageARGB1555::getPixel(uint32_t x, uint32_t y)
     assert(x < this->w);
     assert(y < this->h);
 
-    uint16_t argb = this->argb_array[x*this->w + y];
+    uint16_t argb = this->argb_array[x*this->h + y];
     uint8_t a = (argb >> 15) & 0x01;
     uint8_t r = (argb >> 10) & 0x1F;
     uint8_t g = (argb >> 5) & 0x1F;
@@ -109,7 +109,7 @@ void ImageARGB1555::setPixel(uint32_t x, uint32_t y, Color color)
     uint8_t r = (uint8_t)(color.r * 0x1F) & 0x1F;
     uint8_t g = (uint8_t)(color.g * 0x1F) & 0x1F;
     uint8_t b = (uint8_t)(color.b * 0x1F) & 0x1F;
-    this->argb_array[x*this->w + y] = (a << 15) | (r << 10) | (g << 5) | b;
+    this->argb_array[x*this->h + y] = (a << 15) | (r << 10) | (g << 5) | b;
 }
 
 ImageARGB1555::~ImageARGB1555()
@@ -149,7 +149,7 @@ void ImageRGB565::setPixel(uint32_t x, uint32_t y, Color color)
     uint8_t r = (uint8_t)(color.r * 0x1F) & 0x1F;
     uint8_t g = (uint8_t)(color.g * 0x3F) & 0x3F;
     uint8_t b = (uint8_t)(color.b * 0x1F) & 0x1F;
-    this->rgb_array[x*this->w + y] = (r << 11) | (g << 5) | b;
+    this->rgb_array[x*this->h + y] = (r << 11) | (g << 5) | b;
 }
 
 ImageRGB565::~ImageRGB565()
@@ -169,7 +169,7 @@ Color ImageK8::getPixel(uint32_t x, uint32_t y)
     assert(x < this->w);
     assert(y < this->h);
 
-    uint8_t k = this->k_array[x*this->w + y];
+    uint8_t k = this->k_array[x*this->h + y];
     Color *target_color = this->color_map[k];
 
     assert(target_color != nullptr);
@@ -204,7 +204,7 @@ void ImageK8::setPixel(uint32_t x, uint32_t y, Color color)
         }
     }
 
-    this->k_array[x*this->w + y] = k;
+    this->k_array[x*this->h + y] = k;
 }
 
 ImageK8::~ImageK8()

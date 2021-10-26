@@ -13,6 +13,7 @@
 #include "images/space8.hpp"
 #include "images/space9.hpp"
 #include "images/space10.hpp"
+#include "images/logo.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -25,7 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->display->init();
 
     //Pencil canvas(*display);
-    BufferedPencil canvas(*display, Color(1,1,1), true, true);
+    this->canvas = new BufferedPencil(*display, Color(0,0,0), true, true);
+    this->canvas->fillRectangle(0,0,this->display->getWidth(), this->display->getHeight(), Color(0,0,0));
 
     //canvas.drawLine(50,50,300,200,Color(0,0,0));
     //canvas.drawRoundedRectangle(100,100,100,100,20,Color(0,0,0));
@@ -106,9 +108,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     canvas.drawImage(100, 100, pic);
     */
-    Image *img = get_space3_img();
-    //canvas.fillRoundedRectangle(100,100,100,100,20,Color(0,0,0));
-    canvas.drawImage(100, 100, *img);
+
+}
+
+void MainWindow::draw()
+{
+    Image *img = get_logo_image();
+    //canvas->fillRoundedRectangle(100,100,100,100,20,Color(0,0,0));
+    this->canvas->drawImage(10, 10, *img);
+    this->canvas->drawRoundedRectangle(5,5, img->getWidth()+10, img->getHeight()+10, 5, Color(1,1,1));
 }
 
 MainWindow::~MainWindow()

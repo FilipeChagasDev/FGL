@@ -1,7 +1,9 @@
 # F. Graphics Library (FGL)
 By Filipe Chagas
 
-A small graphics library for LCD displays in embedded systems.
+A small graphics C++ library for LCD displays in embedded systems.
+
+**Documentation available soon.**
 
 ## Available graphic features
 * Abstract display class (implementable for any graphic display)
@@ -11,6 +13,7 @@ A small graphics library for LCD displays in embedded systems.
 * Drawing of **dots**, **lines**, **rectangles**, **rectangles with rounded edges**, **circles**, **ellipses**, **arcs**, **polygons** and **images**
 * Filling of **rectangles**, **rectangles with rounded edges**, **circles**, **ellipses**, **polygons** and **sectors**
 * Optional **anti-aliasing** and **alpha composition**
+* Possibility to simulate the human-machine interface with **Qt**
 
 ## Available non-graphic features
 * List
@@ -18,6 +21,7 @@ A small graphics library for LCD displays in embedded systems.
 * Search for float minimum and maximum values in arrays
 
 ## Available display generic drivers 
-|Display    |Type   |Color Model   |Communication |Available hardware-specific implementations|
-|-----------|-------|--------------|--------------|-------------------------------------------|
-|ST7735     |TFT    |RGB565        |SPI           |STM32H7xx                                  |
+|Display    |Type       |Color Model   |Communication |Available hardware-specific implementations|
+|-----------|-----------|--------------|--------------|-------------------------------------------|
+|Qt display |Simulation |RGB888        |              |                                           |
+|ST7735     |TFT        |RGB565        |SPI           |STM32H7xx                                  |

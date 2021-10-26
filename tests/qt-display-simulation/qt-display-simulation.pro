@@ -19,6 +19,7 @@ SOURCES += \
     fgl/framebuffer.cpp \
     fgl/image.cpp \
     fgl/pencil.cpp \
+    images/logo.cpp \
     images/space1.cpp \
     images/space10.cpp \
     images/space2.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
     fgl/framebuffer.hpp \
     fgl/image.hpp \
     fgl/pencil.hpp \
+    images/logo.hpp \
     images/space1.hpp \
     images/space10.hpp \
     images/space2.hpp \
