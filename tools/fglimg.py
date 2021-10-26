@@ -185,7 +185,6 @@ def get_image_kmeans_elbow(image: Image.Image) -> object:
     import warnings
     warnings.filterwarnings("ignore")
 
-    #Fits kmeans for cluster numbers from 2 to 256
     kmeans_data = [image.getpixel((x, y)) for x in range(image.width) for y in range(image.height)]
     kmeans_data = np.vstack(kmeans_data)
     
@@ -225,7 +224,6 @@ def get_image_kmeans(image: Image.Image, k: int) -> object:
     import warnings
     warnings.filterwarnings("ignore")
 
-    #Fits kmeans for cluster numbers from 2 to 256
     kmeans_data = [image.getpixel((x, y)) for x in range(image.width) for y in range(image.height)]
     kmeans_data = np.vstack(kmeans_data)/255
     
