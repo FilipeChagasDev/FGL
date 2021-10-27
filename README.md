@@ -1,5 +1,4 @@
 # F Graphics Library (FGL)
-![logo](doc/logo.png)
 
 By Filipe Chagas
 
