@@ -19,7 +19,7 @@
 enum class Orientation {V, VI, H, HI};
 
 /**
- * @brief Abstract class to display devices.
+ * @brief Abstract class to display devices. This class must be inherited to make a generic or hardware-specif display driver. Subclasses must override all virtual methods defined as ``=0``.
  * 
  */
 class Display
