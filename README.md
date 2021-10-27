@@ -6,9 +6,9 @@ F Graphics Library is a C++ library that I created for use in embedded system pr
 
 It is not necessary to install FGL on your desktop, just include the directory "lib" (renaming it to "fgl" ) and the other files you need to your project and make the appropriate settings in your IDE or build system.
 
-To learn more about and learn how to use FGL, see the [full documentation](https://fgl.docsforge.com/).
+To learn more about and learn how to use FGL, see the full documentation.
 
-Full documentation page: [fgl.docsforge.com](https://fgl.docsforge.com/)
+Full documentation page: **not available**
 
 ## Available graphic features
 * Abstract display class (implementable for any graphic display)
