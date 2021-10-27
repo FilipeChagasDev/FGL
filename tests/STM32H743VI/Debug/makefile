@@ -80,8 +80,8 @@ all: main-build
 main-build: STM32H743VI.elf secondary-outputs
 
 # Tool invocations
-STM32H743VI.elf: $(OBJS) $(USER_OBJS) /home/filipe/github/Tiny-Graphic-Lib/tests/STM32H743VI/STM32H743VITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "STM32H743VI.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/home/filipe/github/Tiny-Graphic-Lib/tests/STM32H743VI/STM32H743VITX_FLASH.ld" -Wl,-Map="STM32H743VI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+STM32H743VI.elf: $(OBJS) $(USER_OBJS) /home/filipe/github/FGL/tests/STM32H743VI/STM32H743VITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "STM32H743VI.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/home/filipe/github/FGL/tests/STM32H743VI/STM32H743VITX_FLASH.ld" -Wl,-Map="STM32H743VI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,4 +1,4 @@
-display.hpp:18:7:constexpr Display::Display()	16	static
+display.hpp:25:7:constexpr Display::Display()	16	static
 ST7735.cpp:74:1:ST7735::ST7735()	16	static
 ST7735.cpp:84:1:ST7735::~ST7735()	16	static
 ST7735.cpp:84:1:virtual ST7735::~ST7735()	16	static

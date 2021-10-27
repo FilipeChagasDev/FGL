@@ -1,0 +1,4 @@
+array_search.cpp:4:7:float min_float(float*, uint32_t)	24	static
+array_search.cpp:17:7:float max_float(float*, uint32_t)	24	static
+array_search.cpp:30:6:void find_min_float(float*, uint32_t, float&, uint32_t&)	32	static
+array_search.cpp:48:6:void find_max_float(float*, uint32_t, float&, uint32_t&)	32	static

@@ -1,0 +1,31 @@
+cmath:184:3:constexpr float std::cos(float)	16	static
+cmath:425:3:constexpr float std::sin(float)	16	static
+pencil.cpp:18:1:Pencil::Pencil(Display&)	16	static
+pencil.cpp:25:1:Pencil::~Pencil()	16	static
+pencil.cpp:25:1:virtual Pencil::~Pencil()	16	static
+pencil.cpp:30:6:virtual void Pencil::drawPixel(float, float, Color)	40	static
+color.hpp:11:7:constexpr Color::Color(const Color&)	16	static
+pencil.cpp:35:6:void Pencil::drawLine(float, float, float, float, Color)	128	static
+pencil.cpp:63:6:void Pencil::drawRectangle(float, float, float, float, Color)	128	static
+pencil.cpp:80:6:void Pencil::drawCircle(float, float, float, Color, uint32_t)	104	static
+pencil.cpp:106:6:void Pencil::drawEllipse(float, float, float, float, Color, uint32_t)	120	static
+pencil.cpp:135:6:void Pencil::drawArc(float, float, float, float, float, Color, uint32_t)	144	static
+pencil.cpp:176:6:void Pencil::drawRoundedRectangle(float, float, float, float, float, Color, uint32_t)	216	static
+pencil.cpp:201:6:void Pencil::drawPolygon(float*, float*, uint32_t, Color)	104	static
+pencil.cpp:220:6:void Pencil::drawChar(float, float, char, Font&, Color)	32	static
+pencil.cpp:225:6:void Pencil::drawText(float, float, const char*, Font&, Color)	32	static
+pencil.cpp:230:6:void Pencil::drawImage(float, float, Image&)	72	static
+pencil.cpp:244:6:void Pencil::fillRectangle(float, float, float, float, Color)	104	static
+pencil.cpp:263:6:void Pencil::fillCircle(float, float, float, Color)	88	static
+pencil.cpp:282:6:void Pencil::fillEllipse(float, float, float, float, Color)	88	static
+pencil.cpp:302:6:void Pencil::fillPolygon(float*, float*, uint32_t, Color)	104	static
+pencil.cpp:333:6:void Pencil::fillSector(float, float, float, float, float, Color, uint32_t)	216	static
+pencil.cpp:404:6:void Pencil::fillRoundedRectangle(float, float, float, float, float, Color, uint32_t)	216	static
+list.hpp:154:1:List<T>::List() [with T = float]	16	static
+list.hpp:162:1:List<T>::~List() [with T = float]	16	static
+list.hpp:162:1:List<T>::~List() [with T = float]	16	static
+list.hpp:192:6:void List<T>::pushEnd(T) [with T = float]	24	static
+list.hpp:349:10:uint32_t List<T>::getLen() [with T = float]	16	static
+list.hpp:435:4:T* List<T>::getArray() [with T = float]	32	static
+list.hpp:328:6:void List<T>::clear() [with T = float]	16	static
+list.hpp:302:6:bool List<T>::popEnd() [with T = float]	24	static

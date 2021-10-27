@@ -1,0 +1,13 @@
+framebuffer.cpp:10:1:FrameBuffer::FrameBuffer()	16	static
+framebuffer.cpp:15:1:FrameBuffer::~FrameBuffer()	16	static
+framebuffer.cpp:15:1:virtual FrameBuffer::~FrameBuffer()	16	static
+framebuffer.cpp:22:1:FrameBuffer24::FrameBuffer24(uint32_t, uint32_t)	24	static
+framebuffer.cpp:31:6:virtual void FrameBuffer24::setColor(uint32_t, uint32_t, Color)	32	static
+framebuffer.cpp:38:7:virtual Color FrameBuffer24::getColor(uint32_t, uint32_t)	32	static
+framebuffer.cpp:46:1:FrameBuffer24::~FrameBuffer24()	16	static
+framebuffer.cpp:46:1:virtual FrameBuffer24::~FrameBuffer24()	16	static
+framebuffer.cpp:57:1:FrameBuffer16::FrameBuffer16(uint32_t, uint32_t)	24	static
+framebuffer.cpp:64:6:virtual void FrameBuffer16::setColor(uint32_t, uint32_t, Color)	40	static
+framebuffer.cpp:72:7:virtual Color FrameBuffer16::getColor(uint32_t, uint32_t)	32	static
+framebuffer.cpp:81:1:FrameBuffer16::~FrameBuffer16()	16	static
+framebuffer.cpp:81:1:virtual FrameBuffer16::~FrameBuffer16()	16	static

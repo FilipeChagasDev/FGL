@@ -6,7 +6,7 @@
  */
 
 #include <stm32h7_st7735.hpp>
-#include <canvas.hpp>
+#include <pencil.hpp>
 #include <color.hpp>
 #include <main.h>
 #include <spi.h>
@@ -24,7 +24,7 @@ void cppMain()
 											TFT_CS_Pin,
 											&hspi1);
 
-	Canvas canvas(*tft, false, false);
+	Pencil canvas(*tft);
 
 	tft->init();
 	tft->select();

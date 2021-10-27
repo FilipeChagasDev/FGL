@@ -1,0 +1,27 @@
+image.cpp:12:1:Image::Image(uint32_t, uint32_t)	24	static
+image.cpp:21:10:uint32_t Image::getWidth()	16	static
+image.cpp:26:10:uint32_t Image::getHeight()	16	static
+image.cpp:31:1:Image::~Image()	16	static
+image.cpp:31:1:virtual Image::~Image()	16	static
+image.cpp:36:1:ImageARGB8888::ImageARGB8888(uint32_t, uint32_t)	24	static
+image.cpp:44:1:ImageARGB8888::~ImageARGB8888()	16	static
+image.cpp:44:1:virtual ImageARGB8888::~ImageARGB8888()	16	static
+color.hpp:11:7:constexpr Color::Color(const Color&)	16	static
+image.cpp:52:7:virtual Color ImageARGB8888::getPixel(uint32_t, uint32_t)	32	static
+image.cpp:64:6:virtual void ImageARGB8888::setPixel(uint32_t, uint32_t, Color)	40	static
+image.cpp:79:1:ImageARGB1555::ImageARGB1555(uint32_t, uint32_t)	24	static
+image.cpp:84:7:virtual Color ImageARGB1555::getPixel(uint32_t, uint32_t)	32	static
+image.cpp:100:6:virtual void ImageARGB1555::setPixel(uint32_t, uint32_t, Color)	40	static
+image.cpp:115:1:ImageARGB1555::~ImageARGB1555()	16	static
+image.cpp:115:1:virtual ImageARGB1555::~ImageARGB1555()	16	static
+image.cpp:121:1:ImageRGB565::ImageRGB565(uint32_t, uint32_t)	24	static
+image.cpp:126:7:virtual Color ImageRGB565::getPixel(uint32_t, uint32_t)	32	static
+image.cpp:141:6:virtual void ImageRGB565::setPixel(uint32_t, uint32_t, Color)	40	static
+image.cpp:155:1:ImageRGB565::~ImageRGB565()	16	static
+image.cpp:155:1:virtual ImageRGB565::~ImageRGB565()	16	static
+image.cpp:160:1:ImageK8::ImageK8(uint32_t, uint32_t)	24	static
+image.cpp:167:7:virtual Color ImageK8::getPixel(uint32_t, uint32_t)	32	static
+image.cpp:180:7:float diference_between_colors(Color&, Color&)	16	static
+image.cpp:185:6:virtual void ImageK8::setPixel(uint32_t, uint32_t, Color)	40	static
+image.cpp:210:1:ImageK8::~ImageK8()	24	static
+image.cpp:210:1:virtual ImageK8::~ImageK8()	16	static

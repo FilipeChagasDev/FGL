@@ -1,0 +1,8 @@
+cmath:165:3:constexpr float std::ceil(float)	16	static
+cmath:260:3:constexpr float std::floor(float)	16	static
+color.hpp:11:7:constexpr Color::Color(const Color&)	16	static
+buffered_pencil.cpp:13:1:BufferedPencil::BufferedPencil(Display&, Color, bool, bool)	80	static
+buffered_pencil.cpp:29:6:void BufferedPencil::drawTransparentPixel(int, int, float, Color)	112	static
+buffered_pencil.cpp:45:6:virtual void BufferedPencil::drawPixel(float, float, Color)	168	static
+buffered_pencil.cpp:68:1:BufferedPencil::~BufferedPencil()	16	static
+buffered_pencil.cpp:68:1:virtual BufferedPencil::~BufferedPencil()	16	static
