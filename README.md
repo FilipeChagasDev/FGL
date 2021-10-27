@@ -1,6 +1,6 @@
 # F Graphics Library (FGL)
 
-![logo](doc/logo-gray.png)
+![logo](doc/logo-dark.png)
 
 By Filipe Chagas
 
