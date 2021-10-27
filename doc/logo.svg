@@ -39,7 +39,8 @@
      inkscape:window-height="713"
      inkscape:window-x="41"
      inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="true" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -48,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,14 +59,11 @@
      id="layer1"
      transform="translate(0,-286.15199)"
      style="display:inline;opacity:1">
-    <rect
-       id="rect18"
-       width="7.8176346"
-       height="7.5503368"
-       x="0.99824703"
-       y="287.62985"
-       style="opacity:1;fill:#800080;stroke-width:0.15147553;paint-order:stroke fill markers;fill-opacity:1"
-       ry="0" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:0.57250559;paint-order:stroke fill markers"
+       d="M 3.7734375 5.5859375 L 3.7734375 34.123047 L 33.320312 34.123047 L 33.320312 5.5859375 L 3.7734375 5.5859375 z M 11.748047 8.1464844 L 26.748047 8.1464844 L 26.748047 9.6464844 L 11.748047 9.6464844 L 11.748047 8.1464844 z M 11.748047 11.146484 L 26.748047 11.146484 L 26.748047 12.646484 L 11.748047 12.646484 L 11.748047 11.146484 z M 13.248047 14.146484 L 17.748047 14.146484 L 17.748047 15.646484 L 13.248047 15.646484 L 13.248047 14.146484 z M 13.248047 17.146484 L 25.248047 17.146484 L 25.248047 18.646484 L 13.248047 18.646484 L 13.248047 17.146484 z M 13.248047 20.146484 L 25.248047 20.146484 L 25.248047 21.646484 L 13.248047 21.646484 L 13.248047 20.146484 z M 13.248047 23.146484 L 17.748047 23.146484 L 17.748047 24.646484 L 13.248047 24.646484 L 13.248047 23.146484 z M 11.748047 26.146484 L 19.248047 26.146484 L 19.248047 27.646484 L 11.748047 27.646484 L 11.748047 26.146484 z M 11.748047 29.146484 L 19.248047 29.146484 L 19.248047 30.646484 L 11.748047 30.646484 L 11.748047 29.146484 z "
+       transform="matrix(0.26458351,0,0,0.26458351,-1.5134146e-5,286.15199)"
+       id="rect18" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -73,14 +71,11 @@
      inkscape:label="Camada 2"
      style="display:inline"
      transform="translate(0,-7.672917)">
-    <rect
-       id="rect18-3"
-       width="7.8176351"
-       height="7.5503368"
-       x="9.8742151"
-       y="9.1507149"
-       style="opacity:1;fill:#450080;stroke-width:0.15147553;paint-order:stroke fill markers;fill-opacity:1"
-       ry="0" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:0.57250559;paint-order:stroke fill markers"
+       d="M 37.320312 5.5859375 L 37.320312 34.121094 L 66.867188 34.121094 L 66.867188 5.5859375 L 37.320312 5.5859375 z M 46.009766 8.265625 L 59.509766 8.265625 L 59.509766 9.765625 L 46.009766 9.765625 L 46.009766 8.265625 z M 44.509766 11.265625 L 59.509766 11.265625 L 59.509766 12.765625 L 44.509766 12.765625 L 44.509766 11.265625 z M 44.509766 14.265625 L 49.009766 14.265625 L 49.009766 15.765625 L 44.509766 15.765625 L 44.509766 14.265625 z M 44.509766 17.265625 L 49.009766 17.265625 L 49.009766 18.765625 L 44.509766 18.765625 L 44.509766 17.265625 z M 44.509766 20.265625 L 49.009766 20.265625 L 49.009766 21.765625 L 44.509766 21.765625 L 44.509766 20.265625 z M 53.509766 20.265625 L 59.509766 20.265625 L 59.509766 21.765625 L 53.509766 21.765625 L 53.509766 20.265625 z M 44.509766 23.265625 L 49.009766 23.265625 L 49.009766 24.765625 L 44.509766 24.765625 L 44.509766 23.265625 z M 55.009766 23.265625 L 59.509766 23.265625 L 59.509766 24.765625 L 55.009766 24.765625 L 55.009766 23.265625 z M 44.509766 26.265625 L 59.509766 26.265625 L 59.509766 27.765625 L 44.509766 27.765625 L 44.509766 26.265625 z M 46.009766 29.265625 L 58.009766 29.265625 L 58.009766 30.765625 L 46.009766 30.765625 L 46.009766 29.265625 z "
+       transform="matrix(0.26458351,0,0,0.26458351,-1.5134146e-5,7.672917)"
+       id="rect18-3" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -88,46 +83,10 @@
      inkscape:label="Camada 3"
      style="display:inline"
      transform="translate(0,-7.672917)">
-    <rect
-       id="rect18-6"
-       width="7.8176351"
-       height="7.5503368"
-       x="18.750185"
-       y="9.1507149"
-       style="opacity:1;fill:#000080;stroke-width:0.15147553;paint-order:stroke fill markers;fill-opacity:1"
-       ry="0" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58334064px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.2645835;"
-       x="3.1085765"
-       y="15.781495"
-       id="text833"><tspan
-         sodipodi:role="line"
-         id="tspan831"
-         x="3.1085765"
-         y="15.781495"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3500042px;font-family:'IBM Logo';-inkscape-font-specification:'IBM Logo';fill:#ffffff;stroke-width:0.2645835;">F</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58334064px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.2645835;"
-       x="11.776596"
-       y="15.812968"
-       id="text833-9"><tspan
-         sodipodi:role="line"
-         id="tspan831-9"
-         x="11.776596"
-         y="15.812968"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3500042px;font-family:'IBM Logo';-inkscape-font-specification:'IBM Logo';fill:#ffffff;stroke-width:0.2645835;">G</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58334064px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.2645835;"
-       x="20.738237"
-       y="15.744137"
-       id="text833-3"><tspan
-         sodipodi:role="line"
-         id="tspan831-94"
-         x="20.738237"
-         y="15.744137"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3500042px;font-family:'IBM Logo';-inkscape-font-specification:'IBM Logo';fill:#ffffff;stroke-width:0.2645835;">L</tspan></text>
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:0.57250559;paint-order:stroke fill markers"
+       d="M 70.867188 5.5859375 L 70.867188 34.121094 L 100.41406 34.121094 L 100.41406 5.5859375 L 70.867188 5.5859375 z M 78.380859 8.0058594 L 85.880859 8.0058594 L 85.880859 9.5058594 L 78.380859 9.5058594 L 78.380859 8.0058594 z M 78.380859 11.005859 L 85.880859 11.005859 L 85.880859 12.505859 L 78.380859 12.505859 L 78.380859 11.005859 z M 79.880859 14.005859 L 84.380859 14.005859 L 84.380859 15.505859 L 79.880859 15.505859 L 79.880859 14.005859 z M 79.880859 17.005859 L 84.380859 17.005859 L 84.380859 18.505859 L 79.880859 18.505859 L 79.880859 17.005859 z M 79.880859 20.005859 L 84.380859 20.005859 L 84.380859 21.505859 L 79.880859 21.505859 L 79.880859 20.005859 z M 79.880859 23.005859 L 84.380859 23.005859 L 84.380859 24.505859 L 79.880859 24.505859 L 79.880859 23.005859 z M 78.380859 26.005859 L 93.380859 26.005859 L 93.380859 27.505859 L 78.380859 27.505859 L 78.380859 26.005859 z M 78.380859 29.005859 L 93.380859 29.005859 L 93.380859 30.505859 L 78.380859 30.505859 L 78.380859 29.005859 z "
+       transform="matrix(0.26458351,0,0,0.26458351,-1.5134146e-5,7.672917)"
+       id="rect18-6" />
   </g>
 </svg>
