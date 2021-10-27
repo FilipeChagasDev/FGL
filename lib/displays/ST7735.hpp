@@ -20,6 +20,17 @@
  */
 class ST7735 : public Display
 {
+private:
+	void initCommand1();
+	void initCommand2();
+	void initCommand3();
+	void sendCommand(uint8_t cmd);
+	void sendData(uint8_t data);
+	void setAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
+	int convertOrientationX(int vx, int vy);
+	int convertOrientationY(int vx, int vy);
+	static uint16_t convertColor(float r, float g, float b);
+
 protected:
 	/**
 	 * @brief State of the display orientation.
@@ -46,18 +57,11 @@ protected:
 	 */
 	float v_height_mm;
 
+	/**
+	 * @brief Display selection state.
+	 */
 	bool selected;
-
-	void initCommand1();
-	void initCommand2();
-	void initCommand3();
-	void sendCommand(uint8_t cmd);
-	void sendData(uint8_t data);
-	void setAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
-	int convertOrientationX(int vx, int vy);
-	int convertOrientationY(int vx, int vy);
-	static uint16_t convertColor(float r, float g, float b);
-
+	
 public:
 
 	ST7735();
