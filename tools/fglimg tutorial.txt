@@ -1,0 +1,47 @@
+# File: fglimg.py
+# Author: Filipe Chagas
+# Date: october-2021
+# Brief: This script generates C++ code with the contents of a image file for 
+#        using with FGL.
+#
+# Usage:
+#    This script must be used at the terminal. With "tools" as working directory,
+#    type the command "python fglimg.py <input> <output>", where <input> is the
+#    input image file path and <output> is the output code name (not the file name).
+#    This usage of fglimg.py will generate a pair of C++ code files (header and source)
+#    with a function to generate a Image object with the input image contents.
+#
+# Example:
+#   '''sh
+#    python fglimg.py myfold/myimage.png myimage
+#   '''
+#    This command line will generate "myimage.hpp" and "myimage.cpp". These code files
+#    will contains the "myimage" function, prototyped as "Image *myimage();". "myimage"
+#    will returns a pointer to a ImageARGB8888 object with the same contents as "myimage.png".
+#
+# Optional parameters:
+#   --fname <string> : Changes the name of the output function. Default is the same name as output code.
+#   --dir <string> : Defines a root directory to header and source files. Default is '.' directory.
+#   --format {ARGB8888, ARGB1555, RGB565, K8} : Changes the target FGL image format. Default is ARGB8888.
+#   --resize <int> <int> : Defines, respectively, width and height to the output FGL image. Default is the same size of the original image.
+#   --ncolors <int> : If K8 format is chosen, defines a number of colors to be extracted. By default, the script finds the better number of colors using elbow method.
+#
+# Note:
+#   To generate K8 images, fglimg.py uses sklearn and numpy, so you must install these dependences with pip
+#   before using the script with --format set to K8. For other formats, no need to install dependencies.
+#
+# Example:
+#   '''sh
+#    python fglimg.py myfold/myimage.png myimage --dir mycodefold --fname get_myimage --format ARGB1555 --resize 32 32
+#   '''
+#    This command line will generate "mycodefold/myimage.hpp" and "mycodefold/myimage.cpp". These code files
+#    will contains the "get_myimage" function, prototyped as "Image *get_myimage();". "get_myimage" will returns  
+#    a pointer to a ImageARGB1555 object with the same contents as "myimage.png" resized to [width,height]=[32,32].
+#
+# Example:
+#   '''sh
+#    python fglimg.py myfold/myimage.png myimage --dir mycodefold --fname get_myimage --format K8 --ncolors 10
+#   '''
+#    This command line will generate "mycodefold/myimage.hpp" and "mycodefold/myimage.cpp". These code files
+#    will contains the "get_myimage" function, prototyped as "Image *get_myimage();". "get_myimage" will returns  
+#    a pointer to a ImageK8 object with the same contents as "myimage.png" and 10 colors in the pallete.

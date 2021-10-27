@@ -3,8 +3,6 @@ By Filipe Chagas
 
 A small graphics C++ library for LCD displays in embedded systems.
 
-**Documentation available soon.**
-
 ## Available graphic features
 * Abstract display class (implementable for any graphic display)
 * Abstract drivers for commercial graphic displays (implementable for any hardware with memory enough)
