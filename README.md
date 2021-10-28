@@ -1,16 +1,12 @@
 # F Graphics Library (FGL)
 
-![logo](doc/logo-dark.png)
+**Full documentation: [fgl.docsforge.com](https://fgl.docsforge.com/)**
 
-By Filipe Chagas
-
-F Graphics Library is a C++ library that I created for use in embedded system projects with graphic display. This library is portable to any platform for which there is a C++ compiler with only basic C language features available. You can easily port this library yourself to your platform and your display device by simply inheriting the abstract Display class or one of the generic display drivers available and overriding some methods. Furthermore, you can use Qt to simulate the human-machine interface of your project on desktop using a virtual display class, making the development process more practical and comfortable.
+**(By Filipe Chagas)** F Graphics Library is a C++ library that I created for use in embedded system projects with graphic display. This library is portable to any platform for which there is a C++ compiler with only basic C language features available. You can easily port this library yourself to your platform and your display device by simply inheriting the abstract Display class or one of the generic display drivers available and overriding some methods. Furthermore, you can use Qt to simulate the human-machine interface of your project on desktop using a virtual display class, making the development process more practical and comfortable.
 
 It is not necessary to install FGL on your desktop, just include the directory "lib" (renaming it to "fgl" ) and the other files you need to your project and make the appropriate settings in your IDE or build system.
 
 To learn more about and learn how to use FGL, see the [full documentation](https://fgl.docsforge.com/).
-
-Full documentation page: [fgl.docsforge.com](https://fgl.docsforge.com/)
 
 ## Available graphic features
 * Abstract display class (implementable for any graphic display)
