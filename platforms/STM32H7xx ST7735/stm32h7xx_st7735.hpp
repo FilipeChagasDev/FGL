@@ -2,11 +2,11 @@
  * stm32h7_st7735.h
  *
  *  Created on: 21 de out de 2021
- *      Author: filipe
+ *      Author: Filipe Chagas
  */
 
-#ifndef INC_STM32H7_ST7735_HPP_
-#define INC_STM32H7_ST7735_HPP_
+#ifndef STM32H7XX_ST7735_HPP
+#define STM32H7XX_ST7735_HPP
 
 #include <displays/ST7735.hpp>
 #include <stm32h7xx_hal.h>

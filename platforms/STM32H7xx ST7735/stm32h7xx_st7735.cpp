@@ -5,7 +5,7 @@
  *      Author: filipe
  */
 
-#include <stm32h7_st7735.hpp>
+#include <stm32h7xx_st7735.hpp>
 
 STM32H7_ST7735::STM32H7_ST7735(GPIO_TypeDef *rst_port,
 		uint16_t rst_pin,

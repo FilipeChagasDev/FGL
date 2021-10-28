@@ -31,4 +31,4 @@ Full documentation page: [fgl.docsforge.com](https://fgl.docsforge.com/)
 |Display    |Type       |Color Model   |Communication |Available hardware-specific implementations|
 |-----------|-----------|--------------|--------------|-------------------------------------------|
 |Qt display |Simulation |RGB888        |              |                                           |
-|ST7735     |TFT        |RGB565        |SPI           |STM32H7xx                                  |
+|ST7735     |TFT        |RGB565        |SPI           |STM32F1xx, STM32F4xx, STM32H7xx            |
