@@ -11,6 +11,10 @@
 #include <stdint.h>
 #include "color.hpp"
 
+/**
+ * @brief **(INTERNAL CLASS)** FrameBuffer abstract class.
+ * This class works as interface to FrameBuffer24 and FrameBuffer16.
+ */
 class FrameBuffer
 {
 public:
@@ -20,6 +24,9 @@ public:
     virtual ~FrameBuffer();
 };
 
+/**
+ * @brief **(INTERNAL CLASS)** A FrameBuffer subclass with 24 bits long pixels.
+ */
 class FrameBuffer24 : public FrameBuffer
 {
 protected:
@@ -34,6 +41,10 @@ public:
     virtual ~FrameBuffer24();
 };
 
+/**
+ * @brief **(INTERNAL CLASS)** A FrameBuffer subclass with 24 bits long pixels.
+ * 
+ */
 class FrameBuffer16 : public FrameBuffer
 {
 protected:

@@ -18,6 +18,11 @@ struct ListNode
     ListNode *next;
 };
 
+/**
+ * @brief Iterator to a linked list
+ * 
+ * @tparam T 
+ */
 template <typename T>
 class Iterator
 {
@@ -37,6 +42,11 @@ public:
     virtual ~Iterator();
 };
 
+/**
+ * @brief Linked List
+ * 
+ * @tparam T 
+ */
 template <typename T>
 class List
 {
