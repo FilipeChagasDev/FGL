@@ -20,7 +20,7 @@ git clone https://github.com/FilipeChagasDev/FGL
 
 Obviously, you need to have git installed to do this.
 
-Second, you must copy the necessary files from the FGL repository to your project. The main FGL code files are located in the **lib** folder. All code contained in the lib folder is portable, it only depends on some standard C language libraries (**math**, **string** and **stdint**). It is also necessary that the dynamic allocation operators **new** and **delete** are defined. If you think it's necessary, you can delete the generic display drivers you won't be using from the **lib/displays** folder (don't delete the **display.hpp** and **display.cpp** files, they are the basis of all display drivers).
+Second, you must copy the necessary files from the FGL repository to your project. The main FGL code files are located in the **lib** folder. All code contained in the lib folder is portable, it only depends on some standard C language libraries (**math**, **stdint** and **assert**). It is also necessary that the dynamic allocation operators **new**, **new[]**, **delete** and **delete[]** are defined. If you think it's necessary, you can delete the generic display drivers you won't be using from the **lib/displays** folder (don't delete the **display.hpp** and **display.cpp** files, they are the basis of all display drivers).
 
 You will also need hardware-specific or platform-specific drivers. Make sure the code you need exists in the **platforms** folder. If found, copy it to your project, otherwise inherit the Display class or one of the available generic drivers and override the virtual methods to create your own platform-specific driver.
 
