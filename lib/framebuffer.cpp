@@ -30,16 +30,16 @@ FrameBuffer24::FrameBuffer24(uint32_t w, uint32_t h)
 
 void FrameBuffer24::setColor(uint32_t x, uint32_t y, Color color)
 {
-    this->r[x*this->w + y] = (uint8_t)(255*color.r);
-    this->g[x*this->w + y] = (uint8_t)(255*color.g);
-    this->b[x*this->w + y] = (uint8_t)(255*color.b);
+    this->r[x*this->h + y] = (uint8_t)(255*color.r);
+    this->g[x*this->h + y] = (uint8_t)(255*color.g);
+    this->b[x*this->h + y] = (uint8_t)(255*color.b);
 }
 
 Color FrameBuffer24::getColor(uint32_t x, uint32_t y)
 {
-    uint8_t r8 = this->r[x*this->w + y];
-    uint8_t g8 = this->g[x*this->w + y];
-    uint8_t b8 = this->b[x*this->w + y];
+    uint8_t r8 = this->r[x*this->h + y];
+    uint8_t g8 = this->g[x*this->h + y];
+    uint8_t b8 = this->b[x*this->h + y];
     return Color((float)r8/255, (float)g8/255, (float)b8/255);
 }
 
@@ -66,12 +66,12 @@ void FrameBuffer16::setColor(uint32_t x, uint32_t y, Color color)
     uint8_t r8 = (uint8_t)(0x1F*color.r);
     uint8_t g8 = (uint8_t)(0x3F*color.g);
     uint8_t b8 = (uint8_t)(0x1F*color.b);
-    this->buff[x*this->w + y] = COLOR565(r8, g8, b8);
+    this->buff[x*this->h + y] = COLOR565(r8, g8, b8);
 }
 
 Color FrameBuffer16::getColor(uint32_t x, uint32_t y)
 {
-    uint16_t color16 = this->buff[x*this->w + y];
+    uint16_t color16 = this->buff[x*this->h + y];
     uint8_t r8 = (color16 >> 11) & 0x1F;
     uint8_t g8 = (color16 >> 5) & 0x3F;
     uint8_t b8 = (color16) & 0x1F;
