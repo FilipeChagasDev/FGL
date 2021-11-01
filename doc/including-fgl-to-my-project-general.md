@@ -4,13 +4,13 @@ FGL is portable and requires no installation, you just need to copy the necessar
 
 ## Step by step
 
-### 1 - Check if you can merge C++ code into your project
+### 1. Check if you can merge C++ code into your project
 
 Before anything else, you should check this out. First, there needs to be a C++ compiler compatible with your platform. If the platform's processor architecture is ARM, Xtensa or RISC-V, you can certainly use a G++ distribution.
 
 It is very likely that your platform's default SDK is for C language. In this case, you will have to make some changes to the SDK (at least change the compiler and add the ``extern "c"`` specification to the SDK library files). In some cases, you can use some software to make this adaptation from C to C++.
 
-### 2 - Clone github's FGL repository and copy the necessary files for your project
+### 2. Clone github's FGL repository and copy the necessary files for your project
 
 First, clone the FGL repository using the following command:
 
@@ -24,7 +24,7 @@ Second, you must copy the necessary files from the FGL repository to your projec
 
 You will also need hardware-specific or platform-specific drivers. Make sure the code you need exists in the **platforms** folder. If found, copy it to your project, otherwise inherit the Display class or one of the available generic drivers and override the virtual methods to create your own platform-specific driver.
 
-### 3 - Configure your IDE or your build system
+### 3. Configure your IDE or your build system
 
 You must configure your development environment to integrate FGL into your project. First, you must add the **lib** folder to the project's include paths. You can do this by adding a flag to the compiler's build command or by changing project settings in your IDE. If you don't know what include paths are or don't know how to create them, do some research. Also, you need to include all FGL files with **"*.cpp"** extension to your project's sources so that the compiler will generate object codes for FGL and merge them with your project's in the linking.
 
