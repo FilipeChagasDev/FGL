@@ -136,29 +136,31 @@ public:
     void drawGlyph(float x, float y, Glyph &glyph, Color color);
 
     /**
-     * @brief **(NOT IMPLEMENTED)** Draw a char.
+     * @brief Draw a char.
      * 
      * @param x X-axis char location.
      * @param y Y-axis char location.
      * @param c Char.
      * @param font Char font.
      * @param color Char color.
+     * @return Rectangle of the affected area
      */
     Rectangle drawChar(float x, float y, char c, Font &font, Color color); //unavailable
     
     /**
-     * @brief **(NOT IMPLEMENTED)** Draw text.
+     * @brief Draw text.
      * 
      * @param x X-axis text location.
      * @param y Y-axis text location.
      * @param text Text
      * @param font Text font.
      * @param color Text color.
+     * @return Rectangle of the affected area
      */
     Rectangle drawText(float x, float y, const char* text, Font &font, Color color, float h_spacing = 1, float v_spacing = 1); //unavailable
     
     /**
-     * @brief Draw a image.
+     * @brief Draw a Image.
      * 
      * @param x X-axis image location.
      * @param y Y-axis image location.
