@@ -13,13 +13,14 @@ To learn more about and learn how to use FGL, see the [full documentation](https
 * Abstract drivers for commercial graphic displays (implementable for any hardware with memory enough)
 * Hardware-specific drivers for commercial graphic displays
 * **RGB** color model
-* Drawing of **dots**, **lines**, **rectangles**, **rectangles with rounded edges**, **circles**, **ellipses**, **arcs**, **polygons** and **images**
+* Drawing of **dots**, **lines**, **rectangles**, **rectangles with rounded edges**, **circles**, **ellipses**, **arcs**, **polygons**, **images** and **text**
 * Filling of **rectangles**, **rectangles with rounded edges**, **circles**, **ellipses**, **polygons** and **sectors**
 * Optional **anti-aliasing** and **alpha composition**
 * Possibility to simulate the human-machine interface with **Qt**
 
 ## Available non-graphic features
 * List
+* Map (only numeric keys)
 * Counterclockwise point sorting (selection sort)
 * Search for float minimum and maximum values in arrays
 

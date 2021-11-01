@@ -1,6 +1,6 @@
-# File: fglimg.py
+# File: fglttf.py
 # Author: Filipe Chagas
-# Date: october-2021
+# Date: November-2021
 # Brief: This script generates C++ code with the contents of a TTF file for 
 #        using with FGL.
 #
