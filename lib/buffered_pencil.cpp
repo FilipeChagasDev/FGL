@@ -52,10 +52,10 @@ void BufferedPencil::drawPixel(float x, float y, Color color)
         float ceil_coeff_x = 1 - ABS(x - ceil(x));
         float ceil_coeff_y = 1 - ABS(y - ceil(y));
 
-        this->drawTransparentPixel(floor(x), floor(y), floor_coeff_x*floor_coeff_y, color);
-        this->drawTransparentPixel(floor(x), ceil(y), floor_coeff_x*ceil_coeff_y, color);
-        this->drawTransparentPixel(ceil(x), floor(y), ceil_coeff_x*floor_coeff_y, color);
-        this->drawTransparentPixel(ceil(x), ceil(y), ceil_coeff_x*ceil_coeff_y, color);
+        this->drawTransparentPixel(floor(x), floor(y), powf(floor_coeff_x*floor_coeff_y, 2), color);
+        this->drawTransparentPixel(floor(x), ceil(y), powf(floor_coeff_x*ceil_coeff_y, 2), color);
+        this->drawTransparentPixel(ceil(x), floor(y), powf(ceil_coeff_x*floor_coeff_y, 2), color);
+        this->drawTransparentPixel(ceil(x), ceil(y), powf(ceil_coeff_x*ceil_coeff_y, 2), color);
     }
     else
     {

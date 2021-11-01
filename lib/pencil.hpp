@@ -10,9 +10,11 @@
 
 #include <stdint.h>
 #include "displays/display.hpp"
-#include "fonts/font.hpp"
+#include "glyph.hpp"
+#include "font.hpp"
 #include "color.hpp"
 #include "image.hpp"
+#include "rectangle.hpp"
 
 /**
  * @brief The Pencil class is responsible for drawing and filling things on a Display
@@ -122,7 +124,17 @@ public:
      * @param color Polygon color.
      */
     void drawPolygon(float *x_array, float *y_array, uint32_t len, Color color);
-    
+
+    /**
+     * @brief draw a Glyph
+     *
+     * @param x X coordinate to the glyph location.
+     * @param y Y coordinate to the glyph location.
+     * @param glyph Reference to the Glyph object.
+     * @param color Color to print the glyph.
+     */
+    void drawGlyph(float x, float y, Glyph &glyph, Color color);
+
     /**
      * @brief **(NOT IMPLEMENTED)** Draw a char.
      * 
@@ -132,7 +144,7 @@ public:
      * @param font Char font.
      * @param color Char color.
      */
-    void drawChar(float x, float y, char c, Font &font, Color color); //unavailable
+    Rectangle drawChar(float x, float y, char c, Font &font, Color color); //unavailable
     
     /**
      * @brief **(NOT IMPLEMENTED)** Draw text.
@@ -143,7 +155,7 @@ public:
      * @param font Text font.
      * @param color Text color.
      */
-    void drawText(float x, float y, const char* text, Font &font, Color color); //unavailable
+    Rectangle drawText(float x, float y, const char* text, Font &font, Color color, float h_spacing = 1, float v_spacing = 1); //unavailable
     
     /**
      * @brief Draw a image.

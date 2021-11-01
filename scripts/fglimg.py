@@ -5,7 +5,7 @@
 #        using with FGL.
 #
 # Usage:
-#    This script must be used at the terminal. With "tools" as working directory,
+#    This script must be used at the terminal. With "scripts" as working directory,
 #    type the command "python fglimg.py <input> <output>", where <input> is the
 #    input image file path and <output> is the output code name (not the file name).
 #    This usage of fglimg.py will generate a pair of C++ code files (header and source)
@@ -354,7 +354,6 @@ if __name__ == '__main__':
     parser.add_argument('--fname', type=str, help='Name for the generated function (if this argument is not set, output_name is used as function name).')
     parser.add_argument('--resize', type=int, nargs = 2, help='Width and Height (respectively) to the generated image')
     parser.add_argument('--ncolors', type=int, help='Number of colors to be maped (work only with K8 image type).')
-    
     
     args = parser.parse_args()
 

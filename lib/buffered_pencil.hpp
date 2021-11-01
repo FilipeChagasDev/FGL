@@ -32,6 +32,8 @@ protected:
      */
     void drawTransparentPixel(int x, int y, float opacity, Color color);
 public:
+    float scattering;
+    bool aliased_overdraw;
 
     /**
      * @brief Construct a new BufferedPencil object

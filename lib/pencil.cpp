@@ -191,10 +191,10 @@ void Pencil::drawRoundedRectangle(float x, float y, float w, float h, float radi
         this->drawLine(x+w, y+radius, x+w, y+h-radius, color); //Right
 
         //Edges
-        this->drawArc(x+radius, y+radius, PI, PI+PI/2, radius, color); //Left-top
-        this->drawArc(x+radius, y+h-radius, PI/2, PI, radius, color); //Left-bottom
-        this->drawArc(x+w-radius, y+radius, PI+PI/2, 2*PI, radius, color); //Right-top
-        this->drawArc(x+w-radius, y+h-radius, 0, PI/2, radius, color); //Right-bottom
+        this->drawArc(x+radius, y+radius, PI, PI+PI/2, radius, color, edge_vertices); //Left-top
+        this->drawArc(x+radius, y+h-radius, PI/2, PI, radius, color, edge_vertices); //Left-bottom
+        this->drawArc(x+w-radius, y+radius, PI+PI/2, 2*PI, radius, color, edge_vertices); //Right-top
+        this->drawArc(x+w-radius, y+h-radius, 0, PI/2, radius, color, edge_vertices); //Right-bottom
     }
 }
 
@@ -217,14 +217,70 @@ void Pencil::drawPolygon(float *x_array, float *y_array, uint32_t len, Color col
     this->drawLine(x_array[len-1], y_array[len-1], x_array[0], y_array[0], color);
 }
 
-void Pencil::drawChar(float x, float y, char c, Font &font, Color color)
+void Pencil::drawGlyph(float x, float y, Glyph &glyph, Color color)
 {
-    //TODO
+    for(int i = 0; i < glyph.w; i++)
+    {
+        for(int j = 0; j < glyph.h; j++)
+        {
+            float v = (float)glyph.getPixel(i,j)/255.0;
+            this->drawPixel(i+x,j+y, Color(v*color.a, color.r, color.g, color.b));
+        }
+    }
 }
 
-void Pencil::drawText(float x, float y, const char* text, Font &font, Color color)
+Rectangle Pencil::drawChar(float x, float y, char c, Font &font, Color color)
+{ 
+    Glyph *glyph = font.getGlyph(c);
+    this->drawGlyph(x, y, *glyph, color);
+
+    Rectangle affected_area;
+    affected_area.x = x;
+    affected_area.y = y;
+    affected_area.width = glyph->w;
+    affected_area.height = glyph->h;
+    return affected_area;
+}
+
+Rectangle Pencil::drawText(float x, float y, const char* text, Font &font, Color color, float h_spacing, float v_spacing)
 {
-    //TODO
+    assert(text != nullptr);
+
+    float x_position = x;
+    float y_position = y;
+    float y_line_bottom = y_position;
+
+    Rectangle affected_area;
+    affected_area.x = x;
+    affected_area.y = y;
+    affected_area.width = x;
+    affected_area.height = y;
+
+    for(int i = 0; text[i] != '\0'; i++)
+    {
+        if(text[i] != '\n' and text[i] != '\t')
+        {
+            Glyph *glyph = font.getGlyph(text[i]);
+            this->drawGlyph(x_position, y_position, *glyph, color);
+            x_position += glyph->w + h_spacing;
+
+            if(y_line_bottom <  y_position + glyph->h) y_line_bottom = y_position + glyph->h;
+        }
+        else if(text[i] == '\n')
+        {
+            y_position = y_line_bottom + v_spacing;
+            x_position = x;
+        }
+        else if(text[i] == '\t')
+        {
+             x_position += font.getGlyph(' ')->w*4;
+        }
+
+        if(affected_area.width < x_position - x) affected_area.width = x_position - x;
+        if(affected_area.height < y_position - y) affected_area.height = y_position - y;
+    }
+
+    return affected_area;
 }
 
 void Pencil::drawImage(float x, float y, Image &image)
