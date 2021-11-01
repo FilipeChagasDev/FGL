@@ -3,7 +3,7 @@
 To use an image from a file (such as a PNG or JPG) in FGL, it is necessary to convert the image file to a C++ code responsible for generating an **Image** object with the same content as the image file. The **fglimg.py** Python script is responsible for converting image files into C++ code for use with FGL.
 
 ## Usage
-This script must be used at the terminal. With "tools" as working directory, type the command **"python fglimg.py *INPUT* *OUTPUT*"**, where ***INPUT*** is the input image file path and ***OUTPUT*** is the output code name (not the file name). This usage of **fglimg.py** will generate a pair of C++ code files (header and source) with a function to generate a Image object with the input image contents.
+This script must be used at the terminal. With "scripts" as working directory, type the command **"python fglimg.py *INPUT* *OUTPUT*"**, where ***INPUT*** is the input image file path and ***OUTPUT*** is the output code name (not the file name). This usage of **fglimg.py** will generate a pair of C++ code files (header and source) with a function to generate a Image object with the input image contents.
 
 ## Parameters
 *   **input_image** : Input image file path. 
