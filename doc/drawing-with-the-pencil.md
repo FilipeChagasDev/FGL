@@ -95,7 +95,7 @@ Pencil pencil(display);
 If you want to use anti-aliasing and alpha compositing, you should use the **BufferedPencil** class instead of **Pencil**. Drawing with this class is slower and consumes more memory, so test and think if it's really worth using.
 
 ```c++
-BufferedPencil pencil(display);
+BufferedPencil pencil(display, Color(0,0,0));
 ```
 
 Now you can draw on the screen using the methods of the **Pencil** class. Consult the documentation to find out about them.
