@@ -12,15 +12,15 @@ STM32CubeMX by default only generates C libraries. To program in C++ using the g
 
 ### 2. Creating a main function in C++
 
-First, you must declare a function called **jumpToCPP** in **main.h**.
+First, you must declare a function called **jump_to_cpp** in **main.h**.
 
 ```c
 /* USER CODE BEGIN EFP */
-void jumpToCPP();
+void jump_to_cpp();
 /* USER CODE END EFP */
 ```
 
-After that, you create a file called **main.cpp** and make the following definitions:
+After that, you create a file called **cppmain.cpp** and make the following definitions:
 
 ```c++
 //HAL includes
@@ -35,7 +35,7 @@ After that, you create a file called **main.cpp** and make the following definit
 
 /* -- global code section end -- */
 
-void cppMain()
+void cpp_main()
 {
     /* -- setup code section begin -- */
 
@@ -49,9 +49,9 @@ void cppMain()
     }
 }
 
-extern "C" void jumpToCPP()
+extern "C" void jump_to_cpp()
 {
-    cppMain();
+    cpp_main();
 }
 ```
 
@@ -124,7 +124,7 @@ STM32H7_ST7735 display(TFT_RST_GPIO_Port,
                        &hspi1);
 /* -- global code section end -- */
 
-void cppMain()
+void cpp_main()
 {
     /* -- setup code section begin -- */
     display.init();
@@ -145,8 +145,8 @@ void cppMain()
     }
 }
 
-extern "C" void jumpToCPP()
+extern "C" void jump_to_cpp()
 {
-    cppMain();
+    cpp_main();
 }
 ```
