@@ -5,7 +5,7 @@
  *      Author: Filipe Chagas
  */
 
-#include <color.hpp>
+#include "color.hpp"
 
 #define CLIPVALUE(v, min, max) (((v) < (min)) ? (min) : (((v) > (max)) ? (max) : (v)))
 

@@ -41,7 +41,7 @@ void cppMain()
 
     /* -- setup code section end -- */
 
-	while(true)
+    while(true)
     {
         /* -- loop code section begin -- */
 
@@ -51,9 +51,10 @@ void cppMain()
 
 extern "C" void jumpToCPP()
 {
-	cppMain();
+    cppMain();
 }
 ```
+
 Note that there are three sections in the code: **global**, **setup** and **loop**. Keep these three names in mind as they will be used throughout the article to reference these sections of code.
 
 ### 3. Instantiating the display driver
@@ -64,12 +65,12 @@ You should now instance the display driver in the **global** section as follows:
 
 ```c++
 STM32H7_ST7735 display(TFT_RST_GPIO_Port,
-					TFT_RST_Pin,
-					TFT_A0_GPIO_Port,
-					TFT_A0_Pin,
-					TFT_CS_GPIO_Port,
-					TFT_CS_Pin,
-					&hspi1);
+                       TFT_RST_Pin,
+                       TFT_A0_GPIO_Port,
+                       TFT_A0_Pin,
+                       TFT_CS_GPIO_Port,
+                       TFT_CS_Pin,
+                       &hspi1);
 ```
 
 ### 4. Clearing the screen
@@ -115,28 +116,28 @@ The resulting code is as follows:
 
 /* -- global code section begin -- */
 STM32H7_ST7735 display(TFT_RST_GPIO_Port,
-					TFT_RST_Pin,
-					TFT_A0_GPIO_Port,
-					TFT_A0_Pin,
-					TFT_CS_GPIO_Port,
-					TFT_CS_Pin,
-					&hspi1);
+                       TFT_RST_Pin,
+                       TFT_A0_GPIO_Port,
+                       TFT_A0_Pin,
+                       TFT_CS_GPIO_Port,
+                       TFT_CS_Pin,
+                       &hspi1);
 /* -- global code section end -- */
 
 void cppMain()
 {
     /* -- setup code section begin -- */
-	display.init();
-	display.select();
-	display.drawArea(0, 0, display->getWidth()-1, display->getHeight()-1, 0, 0, 0);
+    display.init();
+    display.select();
+    display.drawArea(0, 0, display->getWidth()-1, display->getHeight()-1, 0, 0, 0);
 
-	Pencil pencil(display); //use BufferedPencil to enable anti-aliasing and alpha-composition (transparency)
+    Pencil pencil(display); //use BufferedPencil to enable anti-aliasing and alpha-composition (transparency)
 
-	//use the methods of Pencil to draw on the screen
+    //use the methods of Pencil to draw on the screen
 
     /* -- setup code section end -- */
 
-	while(true)
+    while(true)
     {
         /* -- loop code section begin -- */
 
@@ -146,6 +147,6 @@ void cppMain()
 
 extern "C" void jumpToCPP()
 {
-	cppMain();
+    cppMain();
 }
 ```

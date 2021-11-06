@@ -6,7 +6,7 @@
  */
 
 #ifndef PENCIL_H
-#define PENCITL_H
+#define PENCIL_H
 
 #include <stdint.h>
 #include "displays/display.hpp"
