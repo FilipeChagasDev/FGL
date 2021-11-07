@@ -1,6 +1,6 @@
 # F Graphics Library (FGL)
 
-![Version](https://img.shields.io/badge/Version-v1.1.0-blue)
+![Version](https://img.shields.io/badge/Version-v1.2.0-blue)
 ![License](https://img.shields.io/badge/License-MIT-gree)
 ![Language](https://img.shields.io/badge/Language-C++-red)
 
