@@ -505,7 +505,24 @@ Rectangle Pencil::drawChar(float x, float y, char c, Font &font, Color color)
 #ifndef EXCLUDE_DEFAULT_FONT
 Rectangle Pencil::drawChar(float x, float y, char c, Color color)
 {
-    //TODO
+    for(int i = 0; i < 5; i++)
+    {
+        uint8_t line = default_font_data[c*5 + i];
+        for(int j = 0; j < 8; j++)
+        {
+            if((line >> j) & 0x1)
+            {
+                this->drawPixel(x+i, y+j, color);
+            }
+        }
+    }
+
+    Rectangle rect;
+    rect.x = x;
+    rect.y = y;
+    rect.width = 8;
+    rect.height = 5;
+    return rect;
 }
 #endif
 
@@ -553,7 +570,42 @@ Rectangle Pencil::drawText(float x, float y, const char* text, Font &font, Color
 #ifndef EXCLUDE_DEFAULT_FONT
 Rectangle Pencil::drawText(float x, float y, const char *text, Color color, float h_spacing, float v_spacing)
 {
-    //TODO
+    assert(text != nullptr);
+
+    float x_position = x;
+    float y_position = y;
+    float y_line_bottom = y_position;
+
+    Rectangle affected_area;
+    affected_area.x = x;
+    affected_area.y = y;
+    affected_area.width = x;
+    affected_area.height = y;
+
+    for(int i = 0; text[i] != '\0'; i++)
+    {
+        if(text[i] != '\n' and text[i] != '\t')
+        {
+            Rectangle caa = this->drawChar(x_position, y_position, text[i], color);
+            x_position += caa.width + h_spacing;
+
+            if(y_line_bottom <  y_position + caa.height) y_line_bottom = y_position + caa.height;
+        }
+        else if(text[i] == '\n')
+        {
+            y_position = y_line_bottom + v_spacing;
+            x_position = x;
+        }
+        else if(text[i] == '\t')
+        {
+             x_position += 8*4;
+        }
+
+        if(affected_area.width < x_position - x) affected_area.width = x_position - x;
+        if(affected_area.height < y_position - y) affected_area.height = y_position - y;
+    }
+
+    return affected_area;
 }
 #endif
 

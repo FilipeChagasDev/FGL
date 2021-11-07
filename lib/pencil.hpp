@@ -180,7 +180,7 @@ public:
      * @param color Text color.
      * @return Rectangle of the affected area.
      */
-    Rectangle drawText(float x, float y, const char* text, Color color, float h_spacing = 1, float v_spacing = 1);
+    Rectangle drawText(float x, float y, const char* text, Color color, float h_spacing = 0, float v_spacing = 4);
 #endif
 
     /**
