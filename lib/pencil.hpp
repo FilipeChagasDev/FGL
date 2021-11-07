@@ -143,10 +143,22 @@ public:
      * @param c Char.
      * @param font Char font.
      * @param color Char color.
-     * @return Rectangle of the affected area
+     * @return Rectangle of the affected area.
      */
-    Rectangle drawChar(float x, float y, char c, Font &font, Color color); //unavailable
-    
+    Rectangle drawChar(float x, float y, char c, Font &font, Color color);
+
+#ifndef EXCLUDE_DEFAULT_FONT
+    /**
+     * @brief Draw a char (default font).
+     * @param x X-axis char location.
+     * @param y Y-axis char location.
+     * @param c Char.
+     * @param color Char color.
+     * @return Rectangle of the affected area.
+     */
+    Rectangle drawChar(float x, float y, char c, Color color);
+#endif
+
     /**
      * @brief Draw text.
      * 
@@ -155,10 +167,22 @@ public:
      * @param text Text
      * @param font Text font.
      * @param color Text color.
-     * @return Rectangle of the affected area
+     * @return Rectangle of the affected area.
      */
-    Rectangle drawText(float x, float y, const char* text, Font &font, Color color, float h_spacing = 1, float v_spacing = 1); //unavailable
-    
+    Rectangle drawText(float x, float y, const char* text, Font &font, Color color, float h_spacing = 1, float v_spacing = 1);
+
+#ifndef EXCLUDE_DEFAULT_FONT
+    /**
+     * @brief Draw text (default font).
+     * @param x X-axis text location.
+     * @param y Y-axis text location.
+     * @param text Text.
+     * @param color Text color.
+     * @return Rectangle of the affected area.
+     */
+    Rectangle drawText(float x, float y, const char* text, Color color, float h_spacing = 1, float v_spacing = 1);
+#endif
+
     /**
      * @brief Draw a Image.
      * 

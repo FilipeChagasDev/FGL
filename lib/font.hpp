@@ -43,6 +43,4 @@ public:
 	virtual ~Font();
 };
 
-
-
 #endif /* FONT_HPP_ */
