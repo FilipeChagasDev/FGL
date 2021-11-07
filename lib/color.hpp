@@ -8,6 +8,8 @@
 #ifndef COLOR_HPP_
 #define COLOR_HPP_
 
+#include <stdint.h>
+
 /**
  * @brief Class that represents a color.
  */
@@ -63,5 +65,21 @@ public:
      */
     virtual ~Color();
 };
+
+/**
+ * @brief Create a color object from a rgb888 value.
+ * @param rgb 32-bit parameter whose first (most significant) 8 bits are ignored, the next 8 bits are channel R, the next 8 bits are channel G, and the last 8 bits are channel B.
+ * @param Unitary alpha value. Default to 1.
+ * @return Color object.
+ */
+Color color_from_rgb888(uint32_t rgb, float alpha = 1.0);
+
+/**
+ * @brief Create a color object from a rgba8888 value.
+ * @param rgba 32-bit parameter whose first (most significant) 8 bits are channel R, the next 8 bits are channel G, the next 8 bits are channel B, and the last 8 bits are channel A.
+ * @return Color object.
+ */
+Color color_from_rgba8888(uint32_t rgba);
+
 
 #endif /* COLOR_HPP_ */
