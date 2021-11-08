@@ -191,56 +191,56 @@ public:
 
 	/**
 	 * @brief Virtual method to initialize GPIOs connected to **RST**, **DC** and **CS**.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 */
 	virtual void initIO() = 0;
 
 	/**
 	 * @brief Virtual method to set **RST** pin as **high** logic level.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 */
 	virtual void rstPinSet() = 0;
 
 	/**
 	 * @brief Virtual method to set **RST** pin as **low** logic level.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 */
 	virtual void rstPinReset() = 0;
 
 	/**
 	 * @brief Virtual method to set **DC** pin as **high** logic level.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 */
 	virtual void dcPinSet() = 0;
 
 	/**
 	 * @brief Virtual method to set **DC** pin as **low** logic level.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 */
 	virtual void dcPinReset() = 0;
 
 	/**
 	 * @brief Virtual method to set **CS** pin as **high** logic level.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 */
 	virtual void csPinSet() = 0;
 
 	/**
 	 * @brief Virtual method to set **CS** pin as **low** logic level.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 */
 	virtual void csPinReset() = 0;
 
 	/**
 	 * @brief Virtual method to send a byte via SPI to the ST7735 display.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 * @param data 
 	 */
 
 	virtual void sendByte(uint8_t data) = 0;
 	/**
 	 * @brief Virtual method to delay.
-	 * Override it to make a hardware-specific driver.
+     * **Override it to make a hardware-specific driver.**
 	 * @param ms Delay time in milliseconds.
 	 */
 	virtual void delay(uint8_t ms) = 0;
