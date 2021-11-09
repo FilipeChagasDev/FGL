@@ -9,6 +9,7 @@ class SSD1283A : public Display
 public:
     uint8_t rotation;
     uint8_t inversion_bit;
+    float brightness;
     void sendCommand(uint8_t command);
     void sendByteData(uint8_t data);
     void sendHalfWordData(uint16_t data);
@@ -35,11 +36,6 @@ protected:
      * @brief Display height millimeters.
      */
     float v_height_mm;
-
-    /**
-     * @brief Display selection state.
-     */
-    bool selected;
 
 public:
     SSD1283A();

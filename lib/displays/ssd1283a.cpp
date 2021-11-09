@@ -23,7 +23,6 @@ void SSD1283A::sendHalfWordData(uint16_t data)
 
 void SSD1283A::initCommands()
 {
-    this->csPinReset();
     this->sendCommand(0x10);
     this->sendHalfWordData(0x2F8E);
     this->sendCommand(0x11);
@@ -69,7 +68,6 @@ void SSD1283A::initCommands()
     this->sendHalfWordData(0x0609);
     this->sendCommand(0x13);
     this->sendHalfWordData(0x3100);
-    this->csPinSet();
 }
 
 void SSD1283A::setAddressWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
@@ -167,8 +165,8 @@ SSD1283A::SSD1283A()
     this->rotation = 0;
     this->v_width_dots = 130;
     this->v_height_dots = 130;
-    //this->v_width_mm =
-    //this->v_height_mm =
+    this->v_width_mm = 28.86;
+    this->v_height_mm = 28.86;
 }
 
 const char *SSD1283A::getName()
@@ -184,7 +182,6 @@ uint32_t SSD1283A::getWidth()
      * rotation=3 -> true HI
      */
     return (this->rotation & 1) ? this->v_height_dots : this->v_width_dots;
-
 }
 
 uint32_t SSD1283A::getHeight()
@@ -199,28 +196,28 @@ uint32_t SSD1283A::getHeight()
 
 float SSD1283A::getDPMMX()
 {
-    //TODO
+    return this->v_width_mm/this->v_width_dots;
 }
 
 float SSD1283A::getDPMMY()
 {
-    //TODO
+    return this->v_height_mm/this->v_height_dots;
 }
 
 void SSD1283A::setBrightness(float v)
 {
-    //TODO
+    this->setLedValue(v);
+    this->brightness = v;
 }
 
 float SSD1283A::getBrightness()
 {
-    //TODO
+    return this->brightness;
 }
 
 void SSD1283A::setOrientation(Orientation orientation)
 {
-    assert(this->selected);
-
+    this->select();
     switch(orientation)
     {
     case Orientation::V:
@@ -236,6 +233,7 @@ void SSD1283A::setOrientation(Orientation orientation)
         this->setRotation(3);
         break;
     }
+    this->unselect();
 }
 
 Orientation SSD1283A::getOrientation()
@@ -257,87 +255,93 @@ Orientation SSD1283A::getOrientation()
 
 void SSD1283A::init()
 {
+    this->initIO();
     this->setLedValue(0);
     this->csPinSet();
     this->rstPinReset();
     this->delay(3);
     this->rstPinSet();
     this->delay(200);
+    this->select();
     this->initCommands();
-    this->setLedValue(1);
+    this->unselect();
+    this->setBrightness(1);
 }
 
 void SSD1283A::reset()
 {
-    //TODO
+    this->csPinSet();
+    this->rstPinReset();
+    this->delay(3);
+    this->rstPinSet();
+    this->delay(200);
+    this->select();
+    this->initCommands();
+    this->unselect();
 }
 
 void SSD1283A::select()
 {
-    //TODO
+    this->csPinReset();
 }
 
 void SSD1283A::unselect()
 {
-    //TODO
+    this->csPinSet();
 }
 
 bool SSD1283A::drawPixel(int x, int y, float r, float g, float b)
 {
-    if(this->selected)
+    this->select();
+    // R  R  R  R  R  G  G  G  G  G  G  B  B  B  B  B
+    // 15 14 13 12 11 10 9  8  7  6  5  4  3  2  1  0
+
+    uint8_t _r = (uint8_t)(r * 0x1F) & 0x1F;
+    uint8_t _g = (uint8_t)(g * 0x3F) & 0x3F;
+    uint8_t _b = (uint8_t)(b * 0x1F) & 0x1F;
+    uint16_t color = (_r << 11) | (_g << 5) | _b;
+
+    if(x >= 0 and y >= 0 and x < this->getWidth() and y < this->getHeight())
     {
-        // R  R  R  R  R  G  G  G  G  G  G  B  B  B  B  B
-        // 15 14 13 12 11 10 9  8  7  6  5  4  3  2  1  0
-
-        uint8_t _r = (uint8_t)(r * 0x1F) & 0x1F;
-        uint8_t _g = (uint8_t)(g * 0x3F) & 0x3F;
-        uint8_t _b = (uint8_t)(b * 0x1F) & 0x1F;
-        uint16_t color = (_r << 11) | (_g << 5) | _b;
-
-        if(x >= 0 and y >= 0 and x < this->getWidth() and y < this->getHeight())
-        {
-            this->setAddressWindow(x,y,x,y);
-            this->sendHalfWordData(color);
-            return true;
-        }
-
-        return false;
+        this->setAddressWindow(x,y,x,y);
+        this->sendHalfWordData(color);
+        return true;
     }
-    else return false;
+
+    return false;
+    this->unselect();
 }
 
 bool SSD1283A::drawArea(int x1, int y1, int x2, int y2, float r, float g, float b)
 {
-    if(this->selected)
+    this->select();
+    uint32_t w = this->getWidth();
+    uint32_t h = this->getHeight();
+
+    x1 = (x1 < 0) ? 0 : x1;
+    y1 = (y1 < 0) ? 0 : y1;
+    x2 = CLIPVALUE(x2, x1, w);
+    y2 = CLIPVALUE(y2, y1, h);
+
+    // R  R  R  R  R  G  G  G  G  G  G  B  B  B  B  B
+    // 15 14 13 12 11 10 9  8  7  6  5  4  3  2  1  0
+
+    uint8_t _r = (uint8_t)(CLIPVALUE(r, 0, 1) * 0x1F) & 0x1F;
+    uint8_t _g = (uint8_t)(CLIPVALUE(g, 0, 1) * 0x3F) & 0x3F;
+    uint8_t _b = (uint8_t)(CLIPVALUE(b, 0, 1) * 0x1F) & 0x1F;
+    uint16_t color = (_r << 11) | (_g << 5) | _b;
+
+    this->setAddressWindow(x1,y1,x2,y2);
+    this->sendCommand(0x22);
+
+    for(int i = 0; i < w; i++)
     {
-        uint32_t w = this->getWidth();
-        uint32_t h = this->getHeight();
-
-        x1 = (x1 < 0) ? 0 : x1;
-        y1 = (y1 < 0) ? 0 : y1;
-        x2 = CLIPVALUE(x2, x1, w);
-        y2 = CLIPVALUE(y2, y1, h);
-
-        // R  R  R  R  R  G  G  G  G  G  G  B  B  B  B  B
-        // 15 14 13 12 11 10 9  8  7  6  5  4  3  2  1  0
-
-        uint8_t _r = (uint8_t)(CLIPVALUE(r, 0, 1) * 0x1F) & 0x1F;
-        uint8_t _g = (uint8_t)(CLIPVALUE(g, 0, 1) * 0x3F) & 0x3F;
-        uint8_t _b = (uint8_t)(CLIPVALUE(b, 0, 1) * 0x1F) & 0x1F;
-        uint16_t color = (_r << 11) | (_g << 5) | _b;
-
-        this->setAddressWindow(x1,y1,x2,y2);
-        this->sendCommand(0x22);
-
-        for(int i = 0; i < w; i++)
+        for(int j = 0; j < h; j++)
         {
-            for(int j = 0; j < h; j++)
-            {
-                this->sendHalfWordData(color);
-            }
+            this->sendHalfWordData(color);
         }
-
-        return true;
     }
-    else return false;
+
+    return true;
+    this->unselect();
 }
